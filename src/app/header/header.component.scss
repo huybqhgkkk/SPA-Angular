@@ -1,0 +1,18 @@
+.header__container {
+  background: antiquewhite;
+  padding: 10px;
+  .header__main {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    .header__item {
+      font-size: 24px;
+      margin: 0 20px;
+      cursor: pointer;
+      &:hover {
+        color: aquamarine;
+      }
+    }
+  }
+}
