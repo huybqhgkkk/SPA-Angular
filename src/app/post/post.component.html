@@ -1,8 +1,34 @@
-<h1>post works!</h1>
+
+<!--<h2 (click)="test()">test post</h2>-->
 
 
 
 
 <h1> bai viet</h1>
+<!--<p [routerLink]="['/post-detail',1]">Zeus rất đỗi vui mừng vì có một cậu con trai. Vào một đêm nọ, thần xuống trần bế chú bé Heracles lên cung điện Olympus, lén đặt vào lòng nữ thần Hera để bú trộm sữa. Khi Hera phát hiện Heracles và đẩy phắt cậu ra thì cậu đã bú gần no. Tương truyền lúc Hera đẩy cậu ra, sữa của nữ thần văng khắp bầu trời, tạo thành sông Ngân Hà. Nhờ được uống sữa của Hera mà sau này cậu bé mới trở nên bất tử. Vì vậy, thần Zeus đặt tên mới cho cậu bé là "Heracles", có nghĩa "Vinh quang của Hera".</p>-->
 
-<p [routerLink]="['/post-detail',1]">Zeus rất đỗi vui mừng vì có một cậu con trai. Vào một đêm nọ, thần xuống trần bế chú bé Heracles lên cung điện Olympus, lén đặt vào lòng nữ thần Hera để bú trộm sữa. Khi Hera phát hiện Heracles và đẩy phắt cậu ra thì cậu đã bú gần no. Tương truyền lúc Hera đẩy cậu ra, sữa của nữ thần văng khắp bầu trời, tạo thành sông Ngân Hà. Nhờ được uống sữa của Hera mà sau này cậu bé mới trở nên bất tử. Vì vậy, thần Zeus đặt tên mới cho cậu bé là "Heracles", có nghĩa "Vinh quang của Hera".</p>
+
+<!--<h1>fetch data</h1>-->
+
+<!--<div id="1" class="item new col-md-4" *ngFor="let item of datas">-->
+
+<!--      <h4>{{item.name}}</h4>-->
+<!--      <h6>{{item.content}}</h6>-->
+<!--   -->
+<!--</div>-->
+
+<!--[headerHeight]="50"-->
+<!--[footerHeight]="50"-->
+<!--rowHeight="auto"-->
+<!--[reorderable]="reorderable"-->
+
+<ngx-datatable
+  class="material"
+  [rows]="datas"
+  [loadingIndicator]="loadingIndicator"
+  [columns]="columns"
+  (click)="handleDetail(dl)"
+  #dl
+>
+</ngx-datatable>
+

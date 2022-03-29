@@ -8,6 +8,7 @@ import {Router} from "@angular/router";
 })
 export class HomeComponent implements OnInit {
   name = "huykkk";
+  age = 11;
 
 
   navigate(url : string) {

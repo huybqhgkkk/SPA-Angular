@@ -12,6 +12,8 @@ import { PostComponent } from './post/post.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        FormsModule
+        FormsModule,
+      HttpClientModule,
+      NgxDatatableModule
     ],
   providers: [],
   bootstrap: [AppComponent]
