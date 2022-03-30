@@ -2,10 +2,10 @@
 <button (click)="backClicked()">go back</button>
 
 <!--<div *ngIf="detail != null"; else noTitle >-->
-  <div *ngFor="let user of detail" class="detail__container">
-    <div>xin chao {{user.name}}</div>
-    <div>thong tin la {{user.content}}</div>
-  </div>
+
+    <div>xin chao {{detail?.name}}</div>
+    <div>thong tin la {{detail?.content}}</div>
+
 <!--</div>-->
 <!--<ng-template #noTitle> Loadding </ng-template>-->
 

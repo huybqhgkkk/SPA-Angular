@@ -37,7 +37,7 @@ export class PostComponent implements OnInit {
     }
   ]
 
-  sortFn = (a: any, b: any) => a.cName.localeCompare(b.cName);
+  sortFn = (a: any, b: any) => a.name.localeCompare(b.name);
 
   constructor( public activatedRoute : ActivatedRoute,
                private httpServerService: HttpServerService,

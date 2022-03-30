@@ -22,6 +22,8 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import {NZ_ICONS} from "ng-zorro-antd/icon";
 import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
+import { StoreModule } from '@ngrx/store';
+
 
 const antDesignIcons = AllIcons as {
   [key: string]: IconDefinition;
@@ -50,7 +52,9 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
       NzButtonModule,
       NzTableModule,
       NzIconModule,
-      NzInputModule
+      NzInputModule,
+      StoreModule.forRoot({})
+
     ],
   providers: [
     { provide: NZ_ICONS, useValue: icons }

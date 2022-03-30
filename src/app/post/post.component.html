@@ -75,7 +75,7 @@
 >
   <thead>
   <tr>
-    <th *ngFor="let column of listOfColumn">{{ column.title }}</th>
+    <th *ngFor="let column of listOfColumn" [nzSortFn]="sortFn" >{{ column.title }}</th>
   </tr>
   </thead>
   <tbody>
