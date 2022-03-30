@@ -17,18 +17,134 @@
 <!--   -->
 <!--</div>-->
 
-<!--[headerHeight]="50"-->
-<!--[footerHeight]="50"-->
-<!--rowHeight="auto"-->
-<!--[reorderable]="reorderable"-->
 
-<ngx-datatable
-  class="material"
-  [rows]="datas"
-  [loadingIndicator]="loadingIndicator"
-  [columns]="columns"
-  (click)="handleDetail(dl)"
-  #dl
+<!--(click)="handleDetail(dl)"-->
+<!--<ngx-datatable-->
+<!--  class=" container"-->
+<!--  [rows]="datas"-->
+<!--  [loadingIndicator]="loadingIndicator"-->
+<!--  [columns]="columns"-->
+<!--  [headerHeight]="50"-->
+<!--  [footerHeight]="50"-->
+<!--  rowHeight="auto"-->
+<!--  [reorderable]="reorderable"-->
+<!--  [limit]="10"-->
+
+<!--  (click)="handleDetail($event)"-->
+<!--&gt;-->
+<!--</ngx-datatable>-->
+
+<!--<button nz-button nzType="primary">Primary</button>-->
+
+<!--<div *ngFor="let data of datas">-->
+<!--  <p (click)="handleDetail(data.id)">{{data.name}}</p>-->
+
+<!--</div>-->
+
+<!--<div class="col-md-12 mb-3" style="margin-top: 10px;">-->
+<!--  <ngx-datatable class="material container striped table__post" [rows]="datas" [columnMode]="'flex'" [headerHeight]="50" [footerHeight]="50" rowHeight="auto">-->
+<!--&lt;!&ndash;    <ngx-datatable-column name="#" [flexGrow]="0.5">&ndash;&gt;-->
+<!--&lt;!&ndash;      <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>&ndash;&gt;-->
+<!--&lt;!&ndash;        {{(rowIndex + 1)}}&ndash;&gt;-->
+<!--&lt;!&ndash;      </ng-template>&ndash;&gt;-->
+<!--&lt;!&ndash;    </ngx-datatable-column>&ndash;&gt;-->
+<!--    <ngx-datatable-column name="#" [flexGrow]="1">-->
+<!--      <ng-template let-row="row" ngx-datatable-cell-template>-->
+<!--        {{ row?.id | titlecase }}-->
+<!--      </ng-template>-->
+<!--    </ngx-datatable-column>-->
+
+<!--    <ngx-datatable-column name="Name" [flexGrow]="2">-->
+<!--      <ng-template let-row="row" ngx-datatable-cell-template>-->
+<!--        {{ row?.name | titlecase }}-->
+<!--      </ng-template>-->
+<!--    </ngx-datatable-column>-->
+<!--    <ngx-datatable-column name="Content" [flexGrow]="2">-->
+<!--      <ng-template let-row="row" ngx-datatable-cell-template>-->
+<!--        {{row?.content}}-->
+<!--      </ng-template>-->
+<!--    </ngx-datatable-column>-->
+<!--  </ngx-datatable>-->
+<!--</div>-->
+
+
+<nz-table
+  #basicTable
+  [nzData]="datas"
+  [nzPageSize]="5"
 >
-</ngx-datatable>
+  <thead>
+  <tr>
+    <th *ngFor="let column of listOfColumn">{{ column.title }}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of basicTable.data" (search)="handleSearch($event)" nz-transfer-search="true">
+    <td (click)="handleDetail(user.id)">{{ user.id }}</td>
+    <td (click)="handleDetail(user.id)">{{ user.name }}</td>
+    <td (click)="handleDetail(user.id)">{{ user.content }}</td>
+    <td>
+      <button (click)="handleEdit(user.id)">Edit</button>
+      <button (click)="handleDelete(user.id)">Delete</button>
+    </td>
 
+  </tbody>
+</nz-table>
+
+<!--<nz-dropdown-menu #menu="nzDropdownMenu">-->
+<!--  <div class="ant-table-filter-dropdown">-->
+<!--    <div class="search-box">-->
+<!--      <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" />-->
+<!--      <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">-->
+<!--        Search-->
+<!--      </button>-->
+<!--      <button nz-button nzSize="small" (click)="reset()">Reset</button>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</nz-dropdown-menu>-->
+
+<!--<nz-table-->
+<!--  #basicTable-->
+<!--  #sortTable-->
+<!--  [nzData]="datas"-->
+<!--  #borderedTable-->
+<!--  nzBordered-->
+<!--  #headerTable-->
+<!--  [nzLoading]="loading"-->
+<!--  [nzPageSize]="5" [nzScroll]="{ x: '1000px', y: '240px' }">-->
+<!--  <thead>-->
+<!--  <tr>-->
+<!--    <th nzCustomFilter nzColumnKey="cName" [nzSortFn]="sortFn()"-->
+<!--    >-->
+<!--      Company Name-->
+<!--      <nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchValue.length > 0"-->
+<!--                         [nzDropdownMenu]="menu">-->
+<!--        <i nz-icon nzType="search"></i>-->
+<!--      </nz-filter-trigger>-->
+<!--    </th>-->
+<!--    <th *ngFor="let column of listOfColumn">{{ column.title }}</th>-->
+<!--    <th nzWidth="100px">Status</th>-->
+<!--  </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--  <tr *ngFor="let data of basicTable.data">-->
+<!--        <td>{{ data.id }}</td>-->
+<!--        <td>{{ data.name }}</td>-->
+<!--        <td>{{ data.content }}</td>-->
+<!--    <td>-->
+<!--      <a><nz-tag [nzColor]="'blue'">Booked</nz-tag></a>-->
+<!--    </td>-->
+<!--  </tr>-->
+<!--  </tbody>-->
+<!--</nz-table>-->
+<!--<nz-dropdown-menu #menu="nzDropdownMenu">-->
+<!--  <div class="ant-table-filter-dropdown">-->
+<!--    <div class="search-box">-->
+<!--      <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" />-->
+<!--      <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">-->
+<!--        Search-->
+<!--      </button>-->
+<!--      <button nz-button nzSize="small" (click)="reset()">Reset</button>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</nz-dropdown-menu>-->

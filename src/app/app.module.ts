@@ -14,6 +14,19 @@ import { LoginComponent } from './login/login.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { ReactiveFormsModule } from '@angular/forms';
+import {NzInputModule} from 'ng-zorro-antd/input';
+import {NzButtonModule} from 'ng-zorro-antd/button';
+import {NzIconModule} from 'ng-zorro-antd/icon'
+import { NzTableModule } from 'ng-zorro-antd/table';
+import {NZ_ICONS} from "ng-zorro-antd/icon";
+import { IconDefinition } from '@ant-design/icons-angular';
+import * as AllIcons from '@ant-design/icons-angular/icons';
+
+const antDesignIcons = AllIcons as {
+  [key: string]: IconDefinition;
+};
+const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesignIcons[key])
 
 @NgModule({
   declarations: [
@@ -32,9 +45,16 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
         AppRoutingModule,
         FormsModule,
       HttpClientModule,
-      NgxDatatableModule
+      NgxDatatableModule,
+      ReactiveFormsModule,
+      NzButtonModule,
+      NzTableModule,
+      NzIconModule,
+      NzInputModule
     ],
-  providers: [],
+  providers: [
+    { provide: NZ_ICONS, useValue: icons }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

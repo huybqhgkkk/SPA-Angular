@@ -1,0 +1,28 @@
+h1 {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.form__container {
+  margin: 0 auto;
+  .form__main {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: auto;
+    label {
+      padding-bottom: 15px;
+      font-weight: bold;
+    }
+    input {
+      padding: 7px;
+      outline: none;
+      margin-bottom: 15px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 7px;
+      cursor: pointer;
+    }
+  }
+}

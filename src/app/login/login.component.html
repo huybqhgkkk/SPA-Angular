@@ -1,1 +1,28 @@
-<p>login works!</p>
+<h1>please login</h1>
+
+<div class="form__container">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form__main">
+
+    <label for="email">Email: </label>
+    <input id="email" type="text" formControlName="email" ngModel pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
+    <div *ngIf="this.loginForm.controls.email.errors?.['minlength']"style="color: red">
+      Nhập đúng định dạng emai: huykk@gmail.com
+    </div>
+
+    <label for="password">Password: </label>
+    <input id="password" type="password" formControlName="password">
+    <div *ngIf="this.loginForm.controls.password.errors?.['minlength']"style="color: red">
+     Mật khẩu ít nhất 8 kí tự
+    </div>
+
+<!--    <div *ngIf="!loginForm.valid" style="color: red">-->
+<!--     Vui lòng nhập đủ thông tin-->
+<!--    </div>-->
+
+    <button type="submit" [disabled]="!loginForm.valid">Submit</button>
+  </form>
+</div>
+
+
+
+

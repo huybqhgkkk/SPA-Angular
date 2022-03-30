@@ -1,8 +1,12 @@
 <div class="header__container">
   <div class="header__main">
-    <div class="header__item" [routerLink]="['/home']">Home</div>
-    <div class="header__item" [routerLink]="['/post']">Post</div>
-    <div class="header__item" [routerLink]="['/profile']">Profile</div>
-    <div class="header__item" [routerLink]="['/login']">Login</div>
+    <div class="header__item" [routerLink]="['/home']" routerLinkActive="active__item">Home</div>
+    <div class="header__item"
+         [routerLink]="['/post']"
+         routerLinkActive="active__item"
+        >Post
+    </div>
+    <div class="header__item" [routerLink]="['/profile']" routerLinkActive="active__item">Profile</div>
+    <div class="header__item" [routerLink]="['/login']" routerLinkActive="active__item">Login</div>
   </div>
 </div>
