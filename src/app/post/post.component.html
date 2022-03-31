@@ -66,7 +66,19 @@
 <!--    </ngx-datatable-column>-->
 <!--  </ngx-datatable>-->
 <!--</div>-->
-
+<h1>{{searchValue}}</h1>
+<div class="form-input">
+  <input
+    #searchElement
+    [(ngModel)]="searchValue"
+    class="form-control search-input"
+    id="searchText"
+    name="searchValue"
+    placeholder="Search"
+    type="text"
+  />
+  <i aria-hidden="true" class="fa fa-search search"></i>
+</div>
 
 <nz-table
   #basicTable
@@ -79,7 +91,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let user of basicTable.data" (search)="handleSearch($event)" nz-transfer-search="true">
+  <tr *ngFor="let user of basicTable.data" nz-transfer-search="true">
     <td (click)="handleDetail(user.id)">{{ user.id }}</td>
     <td (click)="handleDetail(user.id)">{{ user.name }}</td>
     <td (click)="handleDetail(user.id)">{{ user.content }}</td>

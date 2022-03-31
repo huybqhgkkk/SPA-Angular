@@ -21,9 +21,11 @@
     "@ngrx/effects": "^13.1.0",
     "@ngrx/entity": "^13.1.0",
     "@ngrx/store": "^13.1.0",
+    "@schematics/angular": "^13.3.0",
     "@swimlane/ngx-datatable": "^20.0.0",
     "ionic": "^5.4.16",
     "ng-zorro-antd": "^13.1.1",
+    "ngx-bootstrap": "^8.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

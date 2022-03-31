@@ -1,8 +1,8 @@
 <div class="home__container">
   <div class="home__main">
-    <h2>
+    <h1>
       hello {{name}}
-    </h2>
+    </h1>
   </div>
 </div>
 
@@ -10,6 +10,16 @@
 <!--<input value="{{name}}" [title]="name">-->
 <!--<input [value]="name">-->
 
-<div (click)="navigate('post')" style="background: #4285f4">chuyn sang post</div>
+<!--<div (click)="navigate('post')" style="background: #4285f4">chuyn sang post</div>-->
 
-<div *ngIf="age>10">lon hon 10</div>
+
+<!--<h2> count la {{ count$ | async }}</h2>-->
+<!--<h2> auth la {{ auth | async }}</h2>-->
+
+<div *ngIf="isLogin; else noLogin">
+  <h1>Login thanh cong</h1>
+</div>
+
+<ng-template #noLogin>
+  <h1>chua login</h1>
+</ng-template>

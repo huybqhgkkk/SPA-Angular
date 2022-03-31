@@ -7,6 +7,15 @@
         >Post
     </div>
     <div class="header__item" [routerLink]="['/profile']" routerLinkActive="active__item">Profile</div>
-    <div class="header__item" [routerLink]="['/login']" routerLinkActive="active__item">Login</div>
+    <div *ngIf="!product ; else notLogin">
+      <div class="header__item" [routerLink]="['/login']" routerLinkActive="active__item">Login</div>
+    </div>
+   <ng-template #notLogin >
+     <div class="header__item logout" (click)="handleLogout()">
+logout
+     </div>
+   </ng-template>
   </div>
+
+
 </div>

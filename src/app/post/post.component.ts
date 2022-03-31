@@ -14,6 +14,7 @@ import {NzTableSortersComponent} from "ng-zorro-antd/table";
 export class PostComponent implements OnInit {
   public id : number = 0;
   datas: any ;
+  dataDisplay: any ;
 
   loadingIndicator = true;
   reorderable = true;
@@ -37,22 +38,26 @@ export class PostComponent implements OnInit {
     }
   ]
 
-  sortFn = (a: any, b: any) => a.name.localeCompare(b.name);
+
 
   constructor( public activatedRoute : ActivatedRoute,
                private httpServerService: HttpServerService,
                private i18n: NzI18nService,
                private router: Router
-  ) { }
+  ) {
+    // if (this.searchValue !=""){
+    //   this.dataDisplay = this.datas.filter((item: any) => item.name.indexOf(this.searchValue) !== -1;
+    // }
+  }
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params['id'];
     this.httpServerService.getPost().subscribe((data)=>{
       this.datas = data;
     })
-
-
   }
+  sortFn = (a: any, b: any) => a.name.localeCompare(b.name);
+
   handleDetail(e:any) {
     this.router.navigateByUrl(`/post-detail/${e}`);
   }
@@ -76,8 +81,8 @@ export class PostComponent implements OnInit {
 
   }
 
-  handleSearch (e:any){
-    console.log(666,e)
+  handleSearch (){
+    // console.log(666,e)
   }
 
   test() {

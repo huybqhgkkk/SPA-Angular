@@ -8,7 +8,10 @@ import {Observable} from "rxjs";
 export class HttpServerService {
   private GET_API_SPA = "https://jsonplaceholder.typicode.com/posts"
   private GET_API = "https://6183570f91d76c00172d18d5.mockapi.io/api/test/v1/post"
+  private USER_API = "https://6183570f91d76c00172d18d5.mockapi.io/api/test/v1/user/1"
   private LOGIN_APi = "https://60dff0ba6b689e001788c858.mockapi.io/tokens"
+  public isLogin: boolean = false;
+
   private httpOptions = {
     headers: new HttpHeaders(
       {
@@ -17,7 +20,16 @@ export class HttpServerService {
       }
     )
   }
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    if (localStorage.getItem("token")){
+      this.isLogin = true
+    }
+  }
+  //kiem tra login
+  // public checkLogin(check: boolean):Observable<boolean>{
+  //    this.isLogin = check;
+  // }
+
 //lay data
   public getPost():Observable<any>{
     const url = this.GET_API;
@@ -47,6 +59,11 @@ export class HttpServerService {
   public deletePost(data: any):Observable<any>{
     const url = `${this.GET_API}/${data}`;
     return this.httpClient.delete<any>(url, this.httpOptions)
+  }
+  //thong tin user
+  public getInfor():Observable<any>{
+    const url = this.USER_API;
+    return this.httpClient.get<any>(url, this.httpOptions)
   }
 
 }

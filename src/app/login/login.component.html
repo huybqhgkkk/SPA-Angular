@@ -4,7 +4,7 @@
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form__main">
 
     <label for="email">Email: </label>
-    <input id="email" type="text" formControlName="email" ngModel pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
+    <input id="email" type="text" formControlName="email"  pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
     <div *ngIf="this.loginForm.controls.email.errors?.['minlength']"style="color: red">
       Nhập đúng định dạng emai: huykk@gmail.com
     </div>

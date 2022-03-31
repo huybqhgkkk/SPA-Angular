@@ -23,6 +23,9 @@ import {NZ_ICONS} from "ng-zorro-antd/icon";
 import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { StoreModule } from '@ngrx/store';
+// import { ModalModule} from 'ngx-bootstrap';
+
+import { counterReducer,testLogin } from './test.reducer';
 
 
 const antDesignIcons = AllIcons as {
@@ -53,7 +56,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
       NzTableModule,
       NzIconModule,
       NzInputModule,
-      StoreModule.forRoot({})
+      // ModalModule.forRoot(),
+      StoreModule.forRoot({ count: counterReducer, auth: testLogin}),
 
     ],
   providers: [
