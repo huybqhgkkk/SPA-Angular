@@ -8,6 +8,7 @@ import {NzTableSortersComponent} from "ng-zorro-antd/table";
 
 import {BsModalService, BsModalRef} from 'ngx-bootstrap/modal';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {IUser} from "../entity/User";
 
 @Component({
   selector: 'app-post',
@@ -16,8 +17,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class PostComponent implements OnInit {
   public id: number = 0;
-  datas: any;
-  dataDisplay: any;
+  datas : any;
+   dataDisplay : IUser[] = []  ;
   searchText: any;
   loadingIndicator = true;
   reorderable = true;
@@ -25,6 +26,7 @@ export class PostComponent implements OnInit {
   visible = false;
   modalRef?: BsModalRef;
   message?: string;
+  dis: boolean = true;
 
   columns = [{prop: 'id'}, {name: 'name'}, {name: 'content', sortable: false}, {name: "action"}];
   listOfColumn = [

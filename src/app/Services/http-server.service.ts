@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {IUser} from "../entity/User";
 
 @Injectable({
   providedIn: 'root'
@@ -31,14 +32,14 @@ export class HttpServerService {
   // }
 
 //lay data
-  public getPost():Observable<any>{
+  public getPost():Observable<IUser[]>{
     const url = this.GET_API;
-    return this.httpClient.get<any>(url, this.httpOptions)
+    return this.httpClient.get<IUser[]>(url, this.httpOptions)
   }
 //them ban ghi
-  public PostApi(payload:any):Observable<any>{
+  public PostApi(payload:object):Observable<any>{
     const url = this.GET_API;
-    return this.httpClient.post<any>(url, payload, this.httpOptions)
+    return this.httpClient.post<IUser[]>(url, payload, this.httpOptions)
   }
 //fake login
   public loginAPi():Observable<any>{

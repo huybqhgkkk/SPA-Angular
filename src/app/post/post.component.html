@@ -146,7 +146,7 @@
     <h2>thêm mới</h2>
     <form [formGroup]="EditForm" (ngSubmit)="handleEdit()" class="form__main">
       <label for="id">ID: </label>
-      <input id="id" type="text" formControlName="id">
+      <input id="id" type="text" formControlName="id" [readOnly]="dis"  >
 
       <label for="name">Name: </label>
       <input id="name" type="text" formControlName="name">
