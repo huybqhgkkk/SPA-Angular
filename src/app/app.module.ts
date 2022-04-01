@@ -23,7 +23,9 @@ import {NZ_ICONS} from "ng-zorro-antd/icon";
 import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { StoreModule } from '@ngrx/store';
-// import { ModalModule} from 'ngx-bootstrap';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { counterReducer,testLogin } from './test.reducer';
 
@@ -58,6 +60,9 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
       NzInputModule,
       // ModalModule.forRoot(),
       StoreModule.forRoot({ count: counterReducer, auth: testLogin}),
+      TooltipModule.forRoot(),
+      Ng2SearchPipeModule,
+      ModalModule.forRoot()
 
     ],
   providers: [

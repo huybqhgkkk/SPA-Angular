@@ -32,7 +32,6 @@ export class PostDetailComponent implements OnInit, OnChanges {
     // this.id = this.activatedRoute.snapshot.params['id'];
     this.http.getPostDetail(this.activatedRoute.snapshot.params['id']).subscribe((data)=>{
       this.detail = data
-      console.log(666,this.detail)
     })
   }
 

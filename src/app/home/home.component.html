@@ -1,10 +1,4 @@
-<div class="home__container">
-  <div class="home__main">
-    <h1>
-      hello {{name}}
-    </h1>
-  </div>
-</div>
+
 
 <!--<input value="" placeholder="aaa">-->
 <!--<input value="{{name}}" [title]="name">-->
@@ -17,9 +11,9 @@
 <!--<h2> auth la {{ auth | async }}</h2>-->
 
 <div *ngIf="isLogin; else noLogin">
-  <h1>Login thanh cong</h1>
+  <h1>Đăng nhập thành công</h1>
 </div>
 
 <ng-template #noLogin>
-  <h1>chua login</h1>
+  <h1>Bạn chưa đăng nhập</h1>
 </ng-template>

@@ -66,97 +66,103 @@
 <!--    </ngx-datatable-column>-->
 <!--  </ngx-datatable>-->
 <!--</div>-->
-<h1>{{searchValue}}</h1>
-<div class="form-input">
-  <input
-    #searchElement
-    [(ngModel)]="searchValue"
-    class="form-control search-input"
-    id="searchText"
-    name="searchValue"
-    placeholder="Search"
-    type="text"
-  />
-  <i aria-hidden="true" class="fa fa-search search"></i>
+<!--<h1>{{searchValue}}</h1>-->
+<div class="post__top">
+  <div class="form-input">
+    <input
+      #searchElement
+      [(ngModel)]="searchText"
+      placeholder=" Start searching for a user by id or name or content"
+      class="form-control search-input"
+      id="searchText"
+      name="searchValue"
+      type="text"
+    />
+    <i aria-hidden="true" class="fa fa-search search"></i>
+  </div>
+  <div>
+    <button type="button" class="btn btn-primary" (click)="openModal(template)">Thêm mới</button>
+    <ng-template #template>
+      <div class="modal-body text-center">
+        <h2>thêm mới</h2>
+        <form [formGroup]="AddForm" (ngSubmit)="confirm()" class="form__main">
+
+          <label for="name">Name: </label>
+          <input id="name" type="text" formControlName="name">
+<!--          <div *ngIf="this.loginForm.controls.email.errors?.['pattern']"style="color: red">-->
+<!--            Nhập đúng định dạng emai: huykk@gmail.com-->
+<!--          </div>-->
+
+          <label for="content">Content: </label>
+          <input id="content" type="text" formControlName="content">
+<!--          <div *ngIf="this.loginForm.controls.password.errors?.['minlength']"style="color: red">-->
+<!--            Mật khẩu ít nhất 8 kí tự-->
+<!--          </div>-->
+
+          <!--    <div *ngIf="!loginForm.valid" style="color: red">-->
+          <!--     Vui lòng nhập đủ thông tin-->
+          <!--    </div>-->
+
+          <button type="submit" [disabled]="!AddForm.valid">Submit</button>
+        </form>
+
+
+
+
+
+<!--        <button type="button" class="btn btn-default" (click)="confirm()" >Yes</button>-->
+<!--        <button type="button" class="btn btn-primary" (click)="decline()" >No</button>-->
+      </div>
+    </ng-template>
+  </div>
 </div>
+
 
 <nz-table
   #basicTable
-  [nzData]="datas"
+  [nzData]="dataDisplay"
   [nzPageSize]="5"
 >
   <thead>
   <tr>
-    <th *ngFor="let column of listOfColumn" [nzSortFn]="sortFn" >{{ column.title }}</th>
+    <th *ngFor="let column of listOfColumn" [nzSortFn]="sortFn">{{ column.title }}</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let user of basicTable.data" nz-transfer-search="true">
+  <tr *ngFor="let user of basicTable.data | filter :searchText" >
     <td (click)="handleDetail(user.id)">{{ user.id }}</td>
     <td (click)="handleDetail(user.id)">{{ user.name }}</td>
     <td (click)="handleDetail(user.id)">{{ user.content }}</td>
     <td>
-      <button (click)="handleEdit(user.id)">Edit</button>
+      <button (click)="openModal(templateE) ; handleDetailEdit(user.id)">Edit</button>
       <button (click)="handleDelete(user.id)">Delete</button>
     </td>
 
   </tbody>
 </nz-table>
 
-<!--<nz-dropdown-menu #menu="nzDropdownMenu">-->
-<!--  <div class="ant-table-filter-dropdown">-->
-<!--    <div class="search-box">-->
-<!--      <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" />-->
-<!--      <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">-->
-<!--        Search-->
-<!--      </button>-->
-<!--      <button nz-button nzSize="small" (click)="reset()">Reset</button>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</nz-dropdown-menu>-->
+<ng-template #templateE>
+  <div class="modal-body text-center">
+    <h2>thêm mới</h2>
+    <form [formGroup]="EditForm" (ngSubmit)="handleEdit()" class="form__main">
+      <label for="id">ID: </label>
+      <input id="id" type="text" formControlName="id">
 
-<!--<nz-table-->
-<!--  #basicTable-->
-<!--  #sortTable-->
-<!--  [nzData]="datas"-->
-<!--  #borderedTable-->
-<!--  nzBordered-->
-<!--  #headerTable-->
-<!--  [nzLoading]="loading"-->
-<!--  [nzPageSize]="5" [nzScroll]="{ x: '1000px', y: '240px' }">-->
-<!--  <thead>-->
-<!--  <tr>-->
-<!--    <th nzCustomFilter nzColumnKey="cName" [nzSortFn]="sortFn()"-->
-<!--    >-->
-<!--      Company Name-->
-<!--      <nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchValue.length > 0"-->
-<!--                         [nzDropdownMenu]="menu">-->
-<!--        <i nz-icon nzType="search"></i>-->
-<!--      </nz-filter-trigger>-->
-<!--    </th>-->
-<!--    <th *ngFor="let column of listOfColumn">{{ column.title }}</th>-->
-<!--    <th nzWidth="100px">Status</th>-->
-<!--  </tr>-->
-<!--  </thead>-->
-<!--  <tbody>-->
-<!--  <tr *ngFor="let data of basicTable.data">-->
-<!--        <td>{{ data.id }}</td>-->
-<!--        <td>{{ data.name }}</td>-->
-<!--        <td>{{ data.content }}</td>-->
-<!--    <td>-->
-<!--      <a><nz-tag [nzColor]="'blue'">Booked</nz-tag></a>-->
-<!--    </td>-->
-<!--  </tr>-->
-<!--  </tbody>-->
-<!--</nz-table>-->
-<!--<nz-dropdown-menu #menu="nzDropdownMenu">-->
-<!--  <div class="ant-table-filter-dropdown">-->
-<!--    <div class="search-box">-->
-<!--      <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" />-->
-<!--      <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">-->
-<!--        Search-->
-<!--      </button>-->
-<!--      <button nz-button nzSize="small" (click)="reset()">Reset</button>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</nz-dropdown-menu>-->
+      <label for="name">Name: </label>
+      <input id="name" type="text" formControlName="name">
+
+      <label for="content">Content: </label>
+      <input id="content" type="text" formControlName="content">
+
+      <button type="submit" [disabled]="!EditForm.valid">Cập Nhật</button>
+      <button type="button" class="btn btn-primary" (click)="decline()">Hủy</button>
+    </form>
+
+
+
+
+
+    <!--        <button type="button" class="btn btn-default" (click)="confirm()" >Yes</button>-->
+    <!--        <button type="button" class="btn btn-primary" (click)="decline()" >No</button>-->
+  </div>
+</ng-template>

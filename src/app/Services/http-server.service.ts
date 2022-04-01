@@ -51,9 +51,9 @@ export class HttpServerService {
     return this.httpClient.get<any>(url, this.httpOptions)
   }
   // sua ban ghi
-  public editPost(data: any):Observable<any>{
-    const url = `${this.GET_API}/${data}`;
-    return this.httpClient.put<any>(url, this.httpOptions)
+  public editPost(id: any, payload: any):Observable<any>{
+    const url = `${this.GET_API}/${id}`;
+    return this.httpClient.put<any>(url, payload ,this.httpOptions)
   }
   //xoa ban ghi
   public deletePost(data: any):Observable<any>{
