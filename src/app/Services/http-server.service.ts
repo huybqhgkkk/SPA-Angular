@@ -12,6 +12,7 @@ export class HttpServerService {
   private USER_API = "https://6183570f91d76c00172d18d5.mockapi.io/api/test/v1/user/1"
   private LOGIN_APi = "https://60dff0ba6b689e001788c858.mockapi.io/tokens"
   public isLogin: boolean = false;
+  private GET_VN = "https://provinces.open-api.vn/api"
 
   private httpOptions = {
     headers: new HttpHeaders(
@@ -64,6 +65,21 @@ export class HttpServerService {
   //thong tin user
   public getInfor():Observable<any>{
     const url = this.USER_API;
+    return this.httpClient.get<any>(url, this.httpOptions)
+  }
+  //lay list tinh thanh
+  public getProvince():Observable<any>{
+    const url = `${this.GET_VN}/p`;
+    return this.httpClient.get<any>(url, this.httpOptions)
+  }
+  //lay huyen tu tinh
+  public getDistrict(code: number):Observable<any>{
+    const url = `${this.GET_VN}/p/${code}?depth=2`;
+    return this.httpClient.get<any>(url, this.httpOptions)
+  }
+  //lay xa tu huyen
+  public getWard(code: number):Observable<any>{
+    const url = `${this.GET_VN}/d/${code}?depth=2`;
     return this.httpClient.get<any>(url, this.httpOptions)
   }
 

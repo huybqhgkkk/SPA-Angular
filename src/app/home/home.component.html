@@ -1,5 +1,3 @@
-
-
 <!--<input value="" placeholder="aaa">-->
 <!--<input value="{{name}}" [title]="name">-->
 <!--<input [value]="name">-->
@@ -11,9 +9,84 @@
 <!--<h2> auth la {{ auth | async }}</h2>-->
 
 <div *ngIf="isLogin; else noLogin">
-  <h1>Đăng nhập thành công</h1>
+  <h1 appHighLight>Đăng nhập thành công</h1>
 </div>
 
 <ng-template #noLogin>
   <h1>Bạn chưa đăng nhập</h1>
 </ng-template>
+
+<!--<h2>test child component</h2>-->
+<!--<h3>View child thông qua @Input</h3>-->
+<!--<app-product [childMessage]="'hello'" (voteSize)="voteCount($event)" (voteReset)="voteCount($event)"></app-product>-->
+
+<!--<h3>EventEmitter</h3>-->
+<!--<h1>Total vote from children: {{vote}}</h1>-->
+
+<!--<table>-->
+<!--  <tr>-->
+<!--    <th>trai cay</th>-->
+<!--    <th>gia</th>-->
+<!--    <th>Sale</th>-->
+<!--  </tr>-->
+<!--  <tr *ngFor="let a of dataList">-->
+<!--    <td>{{a.name | uppercase }}</td>-->
+<!--    <td [ngClass]="a.gia<0?'so-am':''">{{a.gia}}</td>-->
+<!--&lt;!&ndash;    pipe angular&ndash;&gt;-->
+<!--    <td>{{a. sale | onsale | uppercase}}</td>-->
+<!--    &lt;!&ndash;<td [ngClass]="{'so-am': a.gia<0}" [ngStyle]="{'font-size': '30px'}" [style]="{'color: yellow':a.gia>0 }">{{a.gia | currency}}</td>&ndash;&gt;-->
+<!--  </tr>-->
+<!--</table>-->
+
+
+
+<!--chon tinh, huyen, xa-->
+
+<div class="VN__container">
+  <h2>chọn tỉnh huyện...</h2>
+  <div>
+    <span>tinh</span>
+    <span>
+      <select (change)="handleProvince($event)" (click)="handleShowP()">
+<!--        <ng-container *ngIf="showP">-->
+        <option disabled selected value=""></option>
+          <option *ngFor="let list of showP?vnData:[]  ;let indexOfelement=index; " value="{{list?.code}}"
+          >{{list?.name}}</option>
+<!--        </ng-container>-->
+
+
+      </select>
+    </span>
+
+    <span>huyen</span>
+    <span>
+      <select (change)="handleDistrict($event)">
+         <option disabled selected value=""></option>
+        <option *ngFor="let list of district ;let indexOfelement=index; " value="{{list?.code}}">
+          {{list?.name}}
+        </option>
+      </select>
+    </span>
+
+    <span>xa</span>
+    <span>
+      <select>
+         <option disabled selected value=""></option>
+        <option *ngFor="let list of ward ;let indexOfelement=index; " value="{{list?.code}}"
+                (change)="handleWard($event)">{{list?.name}}</option>
+      </select>
+    </span>
+  </div>
+  <div class="button--submit">
+    <!--    <button (click)="handleSubmit()">submit</button>-->
+    <span [ngModel]="dataInput">thong tin ban da nhap la: {{dataInput.xa}}, {{dataInput.huyen}}
+      , {{dataInput.tinh}}</span>
+  </div>
+</div>
+
+<!--<nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a person" [(ngModel)]="selectedValue">-->
+<!--  <nz-option nzLabel="Jack" nzValue="jack"></nz-option>-->
+<!--  <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>-->
+<!--  <nz-option nzLabel="Tom" nzValue="tom"></nz-option>-->
+<!--</nz-select>-->
+

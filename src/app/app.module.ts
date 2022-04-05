@@ -28,6 +28,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { counterReducer,testLogin } from './test.reducer';
+import { ProductComponent } from './product/product.component';
+import { OnsalePipe } from './pipe/onsale.pipe';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { HighLightDirective } from './Directives/high-light.directive';
 
 
 const antDesignIcons = AllIcons as {
@@ -45,7 +49,10 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     PostComponent,
     ProfileComponent,
     LoginComponent,
-    PostDetailComponent
+    PostDetailComponent,
+    ProductComponent,
+    OnsalePipe,
+    HighLightDirective
   ],
     imports: [
         BrowserModule,
@@ -58,6 +65,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
       NzTableModule,
       NzIconModule,
       NzInputModule,
+      NzSelectModule,
       // ModalModule.forRoot(),
       StoreModule.forRoot({ count: counterReducer, auth: testLogin}),
       TooltipModule.forRoot(),

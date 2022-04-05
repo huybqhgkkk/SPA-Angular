@@ -3,3 +3,38 @@
     color: #1976d2;
   }
 }
+
+.so-am {
+  color: red;
+}
+.so-duong {
+  color: #000;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+.VN__container {
+  margin-top: 20px;
+  span {
+    margin: 0 20px;
+  }
+  select {
+    min-width: 200px;
+  }
+}
+
+.button--submit {
+  margin-top: 20px;
+}
