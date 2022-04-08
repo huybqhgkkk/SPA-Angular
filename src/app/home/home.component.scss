@@ -30,8 +30,15 @@ table {
   span {
     margin: 0 20px;
   }
-  select {
-    min-width: 200px;
+  ng-select {
+    width: 300px;
+  }
+  .VN__province {
+    max-width: 300px;
+  }
+  .VN__main {
+    display: flex;
+    justify-content: space-between;
   }
 }
 

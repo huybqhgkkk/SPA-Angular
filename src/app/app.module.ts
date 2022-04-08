@@ -32,6 +32,9 @@ import { ProductComponent } from './product/product.component';
 import { OnsalePipe } from './pipe/onsale.pipe';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { HighLightDirective } from './Directives/high-light.directive';
+import { NotifierModule } from 'angular-notifier';
+import { NgSelectModule } from '@ng-select/ng-select';
+
 
 
 const antDesignIcons = AllIcons as {
@@ -66,6 +69,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
       NzIconModule,
       NzInputModule,
       NzSelectModule,
+      NotifierModule,
+      NgSelectModule,
       // ModalModule.forRoot(),
       StoreModule.forRoot({ count: counterReducer, auth: testLogin}),
       TooltipModule.forRoot(),

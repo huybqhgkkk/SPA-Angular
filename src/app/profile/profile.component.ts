@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
   // count$: Observable<number>;
@@ -31,21 +31,30 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if(!this.checkLogin){
-      var text = "Bạn cần đăng nhập để xem đc Profile!";
-      if (confirm(text) == true) {
-        this.router.navigateByUrl("/login")
-      } else {
-        this.router.navigateByUrl("/home")
-      }
-    }else {
+    // if(!this.checkLogin){
+    //   var text = "Bạn cần đăng nhập để xem đc Profile!";
+    //   if (confirm(text) == true) {
+    //     this.router.navigateByUrl("/login")
+    //   } else {
+    //     this.router.navigateByUrl("/home")
+    //   }
+    // }else {
+    //   this.http.getInfor().subscribe((data)=> {
+    //     console.log(333, data)
+    //     this.datas = data
+    //   })
+    // }
+
+    if (this.checkLogin) {
       this.http.getInfor().subscribe((data)=> {
         console.log(333, data)
         this.datas = data
       })
     }
+  }
 
-
+  handleLogin():void {
+    this.router.navigateByUrl("/login");
   }
 
   get checkLogin(): Boolean {
@@ -68,17 +77,19 @@ export class ProfileComponent implements OnInit {
   //   this.store.dispatch(setAuth())
   // }
 
+  //mo modal
   // openModal(template: TemplateRef<any>) {
-  //   this.modalRef = this.modalService.show(template, {class: 'modal-lg'});
-  // }
-  //
-  // confirm(): void {
-  //   this.message = 'Confirmed!';
-  //   this.modalRef?.hide();
+  //   this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
   // }
   //
   // decline(): void {
-  //   this.message = 'Declined!';
+  //   this.modalRef?.hide();
+  // }
+  //
+  // confirm(): void {
+  //   this.http.isLogin = false;
+  //   localStorage.removeItem('token')
+  //   this.router.navigateByUrl("/home")
   //   this.modalRef?.hide();
   // }
 

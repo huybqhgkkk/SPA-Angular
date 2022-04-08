@@ -11,9 +11,20 @@
       <div class="header__item" [routerLink]="['/login']" routerLinkActive="active__item">Login</div>
     </div>
    <ng-template #notLogin >
-     <div class="header__item logout" (click)="handleLogout()">
+     <div class="header__item logout" (click)="openModal(template)">
       <img src="assets/images/test/logout.png" width="30"/>
      </div>
    </ng-template>
   </div>
 </div>
+
+<!--modal xac nhan-->
+<ng-template #template>
+  <div class="modal-body text-center">
+    <h3>Bạn muốn đăng xuất</h3>
+    <button type="button" class="btn btn-danger" (click)="decline()" style="margin-right: 20px">Không</button>
+    <button type="button" class="btn btn-primary" (click)="confirm()" >Đồng ý</button>
+
+  </div>
+</ng-template>
+

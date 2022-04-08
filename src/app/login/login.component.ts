@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {HttpServerService} from "../Services/http-server.service";
 import {Store} from "@ngrx/store";
 import {setAuth} from "../test.actions";
 import {Router} from "@angular/router";
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  data:any;
+  data: any;
 
   loginForm = new FormGroup({
     email: new FormControl('', [
@@ -26,16 +27,17 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private httpServerService: HttpServerService,
-    private store: Store<{ auth: any}>,
-    private router:Router,
-  ) { }
+    private store: Store<{ auth: any }>,
+    private router: Router,
+  ) {
+  }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
     // console.log(444,this.loginForm.value);
-    this.httpServerService.loginAPi().subscribe((data)=>{
+    this.httpServerService.loginAPi().subscribe((data) => {
       // console.log(555,data)
       if (data) {
         localStorage.setItem("token", data.token)
@@ -45,7 +47,6 @@ export class LoginComponent implements OnInit {
       }
     })
   }
-
 
 
 }

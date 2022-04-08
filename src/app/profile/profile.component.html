@@ -22,13 +22,25 @@
 <!--  </div>-->
 <!--</ng-template>-->
 
-<div class="profile__conteiner">
-  <h1> profile của bạn :</h1>
-
+<div *ngIf="checkLogin; else noLogin">
+  <div class="profile__conteiner">
+    <h1> profile của bạn :</h1>
     <h2>tên bạn là {{datas?.name}}</h2>
     <h2>Bạn {{datas?.age}} tuổi</h2>
     <h2>địa chỉ là {{datas?.adress}}</h2>
-
+  </div>
 </div>
+
+<ng-template #noLogin>
+  <div class="profile__login">
+    <h2>Bạn cần đang nhập để xem được nội dung ở đây</h2>
+    <button (click)="handleLogin()" >Đăng nhập</button>
+  </div>
+</ng-template>
+
+
+
+
+
 
 

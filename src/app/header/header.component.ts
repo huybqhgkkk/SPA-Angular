@@ -1,9 +1,10 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges, TemplateRef} from '@angular/core';
 import {Router} from "@angular/router";
 import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
 import {setAuth} from "../test.actions";
 import {HttpServerService} from "../Services/http-server.service";
+import {BsModalService, BsModalRef} from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-header',
@@ -15,13 +16,13 @@ export class HeaderComponent implements OnInit, OnChanges {
   // isLogin: Observable<boolean>;
   // @Input()
   // isLogin: boolean ;
+  modalRef?: BsModalRef;
 
   constructor(private router: Router,
               private store: Store<{ auth: any }>,
               private http: HttpServerService,
+              private modalService: BsModalService
   ) {
-    // this.isLogin = store.select('auth');
-    // this.isLogin = http.isLogin;
   }
 
   ngOnInit(): void {
@@ -38,19 +39,20 @@ export class HeaderComponent implements OnInit, OnChanges {
     }
   }
 
-  handleLogout() {
-    // this.store.dispatch(setAuth())
-    var text = "bạn muốn đăng xuất";
-    if (confirm(text) == true) {
-      this.http.isLogin = false;
-      localStorage.removeItem('token')
-      this.router.navigateByUrl("/home")
-    } else {
-      // this.router.navigateByUrl("/home")
-    }
+  //mo modal
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
+  }
 
+  decline(): void {
+    this.modalRef?.hide();
+  }
 
-
+  confirm(): void {
+    this.http.isLogin = false;
+    localStorage.removeItem('token')
+    this.router.navigateByUrl("/home")
+    this.modalRef?.hide();
   }
 
 }

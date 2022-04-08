@@ -1,10 +1,7 @@
-
 <!--<h2 (click)="test()">test post</h2>-->
 
 
-
-
-<h1> bai viet</h1>
+<h1> Table</h1>
 <!--<p [routerLink]="['/post-detail',1]">Zeus rất đỗi vui mừng vì có một cậu con trai. Vào một đêm nọ, thần xuống trần bế chú bé Heracles lên cung điện Olympus, lén đặt vào lòng nữ thần Hera để bú trộm sữa. Khi Hera phát hiện Heracles và đẩy phắt cậu ra thì cậu đã bú gần no. Tương truyền lúc Hera đẩy cậu ra, sữa của nữ thần văng khắp bầu trời, tạo thành sông Ngân Hà. Nhờ được uống sữa của Hera mà sau này cậu bé mới trở nên bất tử. Vì vậy, thần Zeus đặt tên mới cho cậu bé là "Heracles", có nghĩa "Vinh quang của Hera".</p>-->
 
 
@@ -82,71 +79,42 @@
   </div>
   <div>
     <button type="button" class="btn btn-primary" (click)="openModal(template)">Thêm mới</button>
-    <ng-template #template>
-      <div class="modal-body text-center">
-        <h2>thêm mới</h2>
-        <form [formGroup]="AddForm" (ngSubmit)="confirm()" class="form__main">
-
-          <label for="name">Name: </label>
-          <input id="name" type="text" formControlName="name">
-<!--          <div *ngIf="this.loginForm.controls.email.errors?.['pattern']"style="color: red">-->
-<!--            Nhập đúng định dạng emai: huykk@gmail.com-->
-<!--          </div>-->
-
-          <label for="content">Content: </label>
-          <input id="content" type="text" formControlName="content">
-<!--          <div *ngIf="this.loginForm.controls.password.errors?.['minlength']"style="color: red">-->
-<!--            Mật khẩu ít nhất 8 kí tự-->
-<!--          </div>-->
-
-          <!--    <div *ngIf="!loginForm.valid" style="color: red">-->
-          <!--     Vui lòng nhập đủ thông tin-->
-          <!--    </div>-->
-
-          <button type="submit" [disabled]="!AddForm.valid">Submit</button>
-        </form>
-
-
-
-
-
-<!--        <button type="button" class="btn btn-default" (click)="confirm()" >Yes</button>-->
-<!--        <button type="button" class="btn btn-primary" (click)="decline()" >No</button>-->
-      </div>
-    </ng-template>
   </div>
 </div>
 
+<div class="table__post">
+  <nz-table
+    #basicTable
+    [nzData]="dataDisplay"
+    [nzPageSize]="10"
+  >
+    <thead>
+    <tr>
+      <th *ngFor="let column of listOfColumn" [nzSortFn]="sortFn">{{ column.title }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of basicTable.data | filter :searchText">
+      <td (click)="handleDetail(user.id)">{{ user.id }}</td>
+      <td (click)="handleDetail(user.id)">{{ user.name }}</td>
+      <td (click)="handleDetail(user.id)">{{ user.content }}</td>
+      <td>
+        <button (click)="openModal(templateE) ; handleDetailEdit(user.id)">Edit</button>
+        <!--        <button (click)="handleDelete(user.id)">Delete</button>-->
+        <button (click)="openModal(templateD); handleIdDelete(user.id)">Delete</button>
+      </td>
 
-<nz-table
-  #basicTable
-  [nzData]="dataDisplay"
-  [nzPageSize]="5"
->
-  <thead>
-  <tr>
-    <th *ngFor="let column of listOfColumn" [nzSortFn]="sortFn">{{ column.title }}</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let user of basicTable.data | filter :searchText" >
-    <td (click)="handleDetail(user.id)">{{ user.id }}</td>
-    <td (click)="handleDetail(user.id)">{{ user.name }}</td>
-    <td (click)="handleDetail(user.id)">{{ user.content }}</td>
-    <td>
-      <button (click)="openModal(templateE) ; handleDetailEdit(user.id)">Edit</button>
-      <button (click)="handleDelete(user.id)">Delete</button>
-    </td>
+    </tbody>
+  </nz-table>
+</div>
 
-  </tbody>
-</nz-table>
 
 <ng-template #templateE>
   <div class="modal-body text-center">
-    <h2>thêm mới</h2>
+    <h2>Sửa đổi</h2>
     <form [formGroup]="EditForm" (ngSubmit)="handleEdit()" class="form__main">
       <label for="id">ID: </label>
-      <input id="id" type="text" formControlName="id" [readOnly]="dis"  >
+      <input id="id" type="text" formControlName="id" [readOnly]="dis" class="disabled--custom">
 
       <label for="name">Name: </label>
       <input id="name" type="text" formControlName="name">
@@ -154,15 +122,50 @@
       <label for="content">Content: </label>
       <input id="content" type="text" formControlName="content">
 
-      <button type="submit" [disabled]="!EditForm.valid">Cập Nhật</button>
-      <button type="button" class="btn btn-primary" (click)="decline()">Hủy</button>
+      <button type="submit" [disabled]="!EditForm.valid" class="btn btn-primary">Cập Nhật</button>
+      <button type="button" class="btn btn-danger" (click)="decline()">Hủy</button>
     </form>
+    <!--        <button type="button" class="btn btn-default" (click)="confirm()" >Yes</button>-->
+    <!--        <button type="button" class="btn btn-primary" (click)="decline()" >No</button>-->
+  </div>
+</ng-template>
 
+<ng-template #template>
+  <div class="modal-body text-center">
+    <h2>thêm mới</h2>
+    <form [formGroup]="AddForm" (ngSubmit)="confirm()" class="form__main">
 
+      <label for="name">Name: </label>
+      <input id="name" type="text" formControlName="name">
+      <!--          <div *ngIf="this.loginForm.controls.email.errors?.['pattern']"style="color: red">-->
+      <!--            Nhập đúng định dạng emai: huykk@gmail.com-->
+      <!--          </div>-->
 
+      <label for="content">Content: </label>
+      <input id="content" type="text" formControlName="content">
+      <!--          <div *ngIf="this.loginForm.controls.password.errors?.['minlength']"style="color: red">-->
+      <!--            Mật khẩu ít nhất 8 kí tự-->
+      <!--          </div>-->
+
+      <!--    <div *ngIf="!loginForm.valid" style="color: red">-->
+      <!--     Vui lòng nhập đủ thông tin-->
+      <!--    </div>-->
+
+      <button type="submit" [disabled]="!AddForm.valid" class="btn btn-primary">Submit</button>
+    </form>
 
 
     <!--        <button type="button" class="btn btn-default" (click)="confirm()" >Yes</button>-->
     <!--        <button type="button" class="btn btn-primary" (click)="decline()" >No</button>-->
   </div>
 </ng-template>
+
+<ng-template #templateD>
+  <div class="modal-body text-center">
+    <h2>Bạn có muốn xóa bản ghi!!!</h2>
+    <button type="button" class="btn btn-danger" (click)="decline()" style="margin-right: 20px">No</button>
+    <button type="button" class="btn btn-primary" (click)="handleDelete()">Yes</button>
+
+  </div>
+</ng-template>
+

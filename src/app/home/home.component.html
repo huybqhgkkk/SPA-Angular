@@ -39,54 +39,51 @@
 <!--</table>-->
 
 
-
 <!--chon tinh, huyen, xa-->
 
-<div class="VN__container">
-  <h2>chọn tỉnh huyện...</h2>
-  <div>
-    <span>tinh</span>
-    <span>
-      <select (change)="handleProvince($event)" (click)="handleShowP()">
-<!--        <ng-container *ngIf="showP">-->
-        <option disabled selected value=""></option>
-          <option *ngFor="let list of showP?vnData:[]  ;let indexOfelement=index; " value="{{list?.code}}"
-          >{{list?.name}}</option>
-<!--        </ng-container>-->
-
-
-      </select>
+  <div class="VN__container">
+    <h2>chọn tỉnh huyện...</h2>
+    <div class="VN__main">
+      <div>
+        <span>tinh</span>
+        <span>
+<ng-select [(ngModel)]="dataInput.tinh" (ngModelChange)="handleProvince($event)" name="tinh" class="VN__province">
+  <ng-option *ngFor="let car of vnData" [value]="car?.code">{{car?.name}}
+  </ng-option>
+</ng-select>
     </span>
+      </div>
 
-    <span>huyen</span>
-    <span>
-      <select (change)="handleDistrict($event)">
-         <option disabled selected value=""></option>
-        <option *ngFor="let list of district ;let indexOfelement=index; " value="{{list?.code}}">
-          {{list?.name}}
-        </option>
-      </select>
+<div>
+  <span>huyen</span>
+  <span>
+  <ng-select [(ngModel)]="dataInput.huyen" (ngModelChange)="handleDistrict($event)" name="huyen" class="VN__province">
+    <ng-option *ngFor="let car of district" [value]="car?.code">{{car?.name}}
+    </ng-option>
+  </ng-select>
     </span>
-
-    <span>xa</span>
-    <span>
-      <select>
-         <option disabled selected value=""></option>
-        <option *ngFor="let list of ward ;let indexOfelement=index; " value="{{list?.code}}"
-                (change)="handleWard($event)">{{list?.name}}</option>
-      </select>
-    </span>
-  </div>
-  <div class="button--submit">
-    <!--    <button (click)="handleSubmit()">submit</button>-->
-    <span [ngModel]="dataInput">thong tin ban da nhap la: {{dataInput.xa}}, {{dataInput.huyen}}
-      , {{dataInput.tinh}}</span>
-  </div>
 </div>
 
-<!--<nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a person" [(ngModel)]="selectedValue">-->
-<!--  <nz-option nzLabel="Jack" nzValue="jack"></nz-option>-->
-<!--  <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>-->
-<!--  <nz-option nzLabel="Tom" nzValue="tom"></nz-option>-->
-<!--</nz-select>-->
+<div>
+  <span>xa</span>
+  <span>
+    <ng-select [(ngModel)]="dataInput.xa" name="tinh" class="VN__province">
+      <ng-option *ngFor="let car of ward" value="{{car?.code}}">{{car?.name}}
+      </ng-option>
+    </ng-select>
+
+    </span>
+</div>
+
+    </div>
+    <div class="button--submit">
+      <!--      <button type="submit"  class="btn btn-primary">Submit</button>-->
+      <!--      <span [ngModel]="dataInput">thong tin ban da nhap la: {{dataInput.xa}}, {{dataInput.huyen}}-->
+      <!--        , {{dataInput.tinh}}</span>-->
+    </div>
+  </div>
+
+
+
+
 

@@ -9,6 +9,8 @@ import {NzTableSortersComponent} from "ng-zorro-antd/table";
 import {BsModalService, BsModalRef} from 'ngx-bootstrap/modal';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {IUser} from "../entity/User";
+import {NotifierService} from 'angular-notifier';
+
 
 @Component({
   selector: 'app-post',
@@ -16,10 +18,10 @@ import {IUser} from "../entity/User";
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
-  public id: number = 0;
-  datas : any;
-   dataDisplay : IUser[] = []  ;
-  searchText: any;
+  id: number = 0;
+  datas: any;
+  dataDisplay: IUser[] = [];
+  searchText: string = "";
   loadingIndicator = true;
   reorderable = true;
   loading = false;
@@ -27,6 +29,8 @@ export class PostComponent implements OnInit {
   modalRef?: BsModalRef;
   message?: string;
   dis: boolean = true;
+  idDelete: number = 0;
+  private readonly notifier: NotifierService;
 
   columns = [{prop: 'id'}, {name: 'name'}, {name: 'content', sortable: false}, {name: "action"}];
   listOfColumn = [
@@ -72,8 +76,11 @@ export class PostComponent implements OnInit {
               private httpServerService: HttpServerService,
               private i18n: NzI18nService,
               private router: Router,
-              private modalService: BsModalService
-  ) {}
+              private modalService: BsModalService,
+              notifierService: NotifierService
+  ) {
+    this.notifier = notifierService;
+  }
 
   ngOnInit(): void {
     // this.id = this.activatedRoute.snapshot.params['id'];
@@ -102,8 +109,8 @@ export class PostComponent implements OnInit {
   }
 
   //ham lay data detail
-  handleDetailEdit (e:any) {
-    this.httpServerService.getPostDetail(e).subscribe((data)=>{
+  handleDetailEdit(e: any) {
+    this.httpServerService.getPostDetail(e).subscribe((data) => {
       this.EditForm.setValue({name: data.name, id: data.id, content: data.content})
     })
   }
@@ -123,28 +130,33 @@ export class PostComponent implements OnInit {
         this.dataDisplay = data;
       })
     })
+    this.notifier.notify('success', 'Sửa thành công');
+
 
     this.modalRef?.hide();
   }
+
 // ham delete
-  handleDelete(e: any) {
-    var text = "ban co muon xoa ban ghi";
-
-    if (confirm(text) == true) {
-      this.httpServerService.deletePost(e).subscribe(() => {
-        this.httpServerService.getPost().subscribe((data) => {
-          this.dataDisplay = data;
-        })
+  handleDelete() {
+    this.httpServerService.deletePost(this.idDelete).subscribe(() => {
+      this.httpServerService.getPost().subscribe((data) => {
+        this.dataDisplay = data;
       })
-    } else {
-      text = "You canceled!";
-    }
-
+    })
+    this.modalRef?.hide()
+    this.notifier.notify('success', 'Xóa thành công');
   }
+
+  //ham set id delete
+  handleIdDelete(e: number): void {
+    this.idDelete = e;
+  }
+
 //mo modal
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
   }
+
 //ham add
   confirm(): void {
     const pay = {
@@ -154,12 +166,13 @@ export class PostComponent implements OnInit {
 
     this.httpServerService.PostApi(pay).subscribe((data) => {
       this.AddForm.reset();
+      this.AddForm.reset();
       this.httpServerService.getPost().subscribe((data) => {
         // this.datas = data;
         this.dataDisplay = data;
       })
     })
-
+    this.notifier.notify('success', 'Thêm thành công');
     this.modalRef?.hide();
   }
 

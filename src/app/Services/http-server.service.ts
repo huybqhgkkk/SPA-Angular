@@ -38,9 +38,9 @@ export class HttpServerService {
     return this.httpClient.get<IUser[]>(url, this.httpOptions)
   }
 //them ban ghi
-  public PostApi(payload:object):Observable<any>{
+  public PostApi(payload:IUser):Observable<IUser>{
     const url = this.GET_API;
-    return this.httpClient.post<IUser[]>(url, payload, this.httpOptions)
+    return this.httpClient.post<IUser>(url, payload, this.httpOptions)
   }
 //fake login
   public loginAPi():Observable<any>{
@@ -48,24 +48,24 @@ export class HttpServerService {
     return this.httpClient.get<any>(url, this.httpOptions)
   }
   // lay chi tiet ban ghi
-  public getPostDetail(data: any):Observable<any>{
+  public getPostDetail(data: number):Observable<IUser>{
     const url = `${this.GET_API}/${data}`;
-    return this.httpClient.get<any>(url, this.httpOptions)
+    return this.httpClient.get<IUser>(url, this.httpOptions)
   }
   // sua ban ghi
-  public editPost(id: any, payload: any):Observable<any>{
+  public editPost(id: number, payload: IUser):Observable<IUser>{
     const url = `${this.GET_API}/${id}`;
-    return this.httpClient.put<any>(url, payload ,this.httpOptions)
+    return this.httpClient.put<IUser>(url, payload ,this.httpOptions)
   }
   //xoa ban ghi
-  public deletePost(data: any):Observable<any>{
+  public deletePost(data: number):Observable<number>{
     const url = `${this.GET_API}/${data}`;
-    return this.httpClient.delete<any>(url, this.httpOptions)
+    return this.httpClient.delete<number>(url, this.httpOptions)
   }
   //thong tin user
-  public getInfor():Observable<any>{
+  public getInfor():Observable<IUser>{
     const url = this.USER_API;
-    return this.httpClient.get<any>(url, this.httpOptions)
+    return this.httpClient.get<IUser>(url, this.httpOptions)
   }
   //lay list tinh thanh
   public getProvince():Observable<any>{
