@@ -1,0 +1,11 @@
+{
+  "TITLE": "Chào mừng, chi tiết hồ sơ của bạn là",
+  "USER_INFO":{
+    "NAME":"Nombre",
+    "WORKING_PROFILE":"Hồ sơ làm việc",
+    "ADDRESS_DETAILS":"Chi tiết Địa chỉ",
+    "PHONE_NUMBER":"Số điện thoại",
+    "EMAIL_ADDRESS":"Địa chỉ Email",
+    "RELEVANT_EXPERIENCE":"Trải nghiệm có liên quan"
+  }
+}

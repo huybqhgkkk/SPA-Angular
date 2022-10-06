@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output, Directive} from '@angular/core';
-import { Router } from '@angular/router';
-
+import {Router} from '@angular/router';
+import {TranslateService} from "@ngx-translate/core";
 
 
 @Component({
@@ -14,24 +14,33 @@ export class AppComponent {
   label = "";
   fname: any;
   isTrue: any;
-  isMetric= "true";
+  isMetric = "true";
 
 
   updateTime() {
     this.boo--;
   }
 
-  updateValue(value: any){
+  updateValue(value: any) {
     this.label = value;
   }
 
-  navigate(url : string) {
+  navigate(url: string) {
     // this.routerService.navigate([url]);
     this.routerService.navigateByUrl(url);
   }
 
-constructor(  public routerService : Router) {
-}
+  constructor(
+    public routerService: Router,
+    public translate: TranslateService
+  ) {
+    translate.addLangs(['en', 'vn', 'fr']);
+    translate.setDefaultLang('en');
+  }
+
+  translateLanguageTo(lang: string) {
+    this.translate.use(lang);
+  }
 
 
 }

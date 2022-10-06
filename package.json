@@ -22,6 +22,8 @@
     "@ngrx/effects": "^13.1.0",
     "@ngrx/entity": "^13.1.0",
     "@ngrx/store": "^13.1.0",
+    "@ngx-translate/core": "^14.0.0",
+    "@ngx-translate/http-loader": "^7.0.0",
     "@schematics/angular": "^13.3.0",
     "@swimlane/ngx-datatable": "^20.0.0",
     "angular-notifier": "^11.0.0",
