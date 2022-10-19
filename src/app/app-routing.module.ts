@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from "./home/home.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
 import {PostComponent} from "./post/post.component";
@@ -8,13 +8,12 @@ import {LoginComponent} from "./login/login.component";
 import {PostDetailComponent} from "./post-detail/post-detail.component";
 
 
-
 const routes: Routes = [
   {
     // khi đường dẫn là '' thì nó sẽ được tự động gọi đến đường dẫn là '/index'
-    path : '',
-    redirectTo : 'home',
-    pathMatch : 'full'
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
   },
   {
     path: 'home',
@@ -57,4 +56,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

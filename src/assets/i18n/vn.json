@@ -1,11 +1,42 @@
+
 {
-  "TITLE": "Chào mừng, chi tiết hồ sơ của bạn là",
-  "USER_INFO":{
-    "NAME":"Nombre",
-    "WORKING_PROFILE":"Hồ sơ làm việc",
-    "ADDRESS_DETAILS":"Chi tiết Địa chỉ",
-    "PHONE_NUMBER":"Số điện thoại",
-    "EMAIL_ADDRESS":"Địa chỉ Email",
-    "RELEVANT_EXPERIENCE":"Trải nghiệm có liên quan"
+  "HOME":{
+    "NAME":"Trang chủ",
+    "IS_LOGIN":"Bạn đã đăng nhập",
+    "PROVINCE":"Tỉnh/Thành phố",
+    "DISTRICT":"Quận/Huyện",
+    "WARD":"Xã/Phường",
+    "CHOOSE":"Chọn"
+  },
+  "POST":{
+    "POST":"Bài viết",
+    "TABLE":"Bảng",
+    "ADD":"Thêm",
+    "EDIT":"Sửa",
+    "DELETE":"Xóa",
+    "NAME":"Tên",
+    "CONTENT":"Nội dung",
+    "ACTION":"Hành dộng",
+    "UPDATE":"Cập nhật",
+    "CANCEL":"Hủy",
+    "YES":"Đồng ý",
+    "NO":"Không",
+    "ARE_YOU_SURE":"Bạn có muốn xóa bản ghi"
+  },
+  "PROFILE":{
+    "NAME":"Hồ sơ",
+    "IS_MUST":"Bạn cần phải đăng nhập để xem nội dung này"
+
+  },
+  "LOGIN":{
+    "LOGIN":"Đăng nhập",
+    "SUBMIT":"Gửi",
+    "EMAIL":"Email",
+    "PASSWORD":"Mật khẩu",
+    "PLEASE_LOGIN":"Vui lòng đăng nhập ở đây",
+    "LOGIN_SUCCESS":"Bạn chưa đăng nhập",
+    "LOGOUT":"Bạn muốn đăng xuất",
+    "VALID_EMAIL": "Nhập đúng định dạng emai",
+    "VALID_PASS": "Mật khẩu ít nhất 8 kí tự"
   }
 }

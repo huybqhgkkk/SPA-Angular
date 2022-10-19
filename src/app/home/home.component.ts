@@ -75,7 +75,6 @@ export class HomeComponent implements OnInit {
   }
 
   navigate(url: string) {
-    // this.routerService.navigate([url]);
     this.routerService.navigateByUrl(url);
   }
 
@@ -114,11 +113,6 @@ export class HomeComponent implements OnInit {
   handleWard(e: any): void {
     // this.dataInput.xa = this.ward[parseInt(e.target.value)]?.name
   }
-
-  handleSubmit(): void {
-
-  }
-
 
   // submit form vn
   confirm(): void {

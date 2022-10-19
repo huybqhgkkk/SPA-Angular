@@ -1,24 +1,29 @@
 .header__container {
-  background: linear-gradient(90deg, #2e9f3c,#5ea700);
+  background: linear-gradient(90deg, #2e9f3c, #5ea700);
   padding: 10px;
+
   .header__main {
     margin-top: 20px;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
+
     .header__item {
       font-size: 24px;
       margin: 0 20px;
       cursor: pointer;
       color: #fff;
       transition: 0.3s color ease;
+
       &:hover {
         color: #fd7e14;
       }
     }
+
     .logout {
       color: red;
     }
+
     .active__item {
       color: #fd7e14;
     }

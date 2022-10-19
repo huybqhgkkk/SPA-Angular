@@ -1,18 +1,21 @@
 <div class="header__container">
   <div class="header__main">
-    <div class="header__item" [routerLink]="['/home']" routerLinkActive="active__item">Home</div>
+    <div class="header__item" [routerLink]="['/home']" routerLinkActive="active__item">{{'HOME.NAME' | translate}}</div>
     <div class="header__item"
          [routerLink]="['/post']"
          routerLinkActive="active__item"
         >Post
     </div>
-    <div class="header__item" [routerLink]="['/profile']" routerLinkActive="active__item">Profile</div>
+    <div class="header__item" [routerLink]="['/profile']" routerLinkActive="active__item">{{'PROFILE.NAME' | translate}}</div>
     <div *ngIf="!product ; else notLogin">
-      <div class="header__item" [routerLink]="['/login']" routerLinkActive="active__item">Login</div>
+      <div class="header__item" [routerLink]="['/login']" routerLinkActive="active__item">{{'LOGIN.LOGIN' | translate}}</div>
     </div>
+     <select #selLang (change)="translateLanguageTo(selLang.value)">
+      <option *ngFor="let language of translate.getLangs()" [value]="language">{{ language }}</option>
+    </select>
    <ng-template #notLogin >
      <div class="header__item logout" (click)="openModal(template)">
-      <img src="assets/images/test/logout.png" width="30"/>
+      <img src="assets/images/test/logout.png" width="30" alt="aaa"/>
      </div>
    </ng-template>
   </div>
@@ -21,9 +24,9 @@
 <!--modal xac nhan-->
 <ng-template #template>
   <div class="modal-body text-center">
-    <h3>Bạn muốn đăng xuất</h3>
-    <button type="button" class="btn btn-danger" (click)="decline()" style="margin-right: 20px">Không</button>
-    <button type="button" class="btn btn-primary" (click)="confirm()" >Đồng ý</button>
+    <h3>{{'LOGIN.LOGOUT' | translate}}</h3>
+    <button type="button" class="btn btn-danger" (click)="decline()" style="margin-right: 20px">{{'POST.NO' | translate}}</button>
+    <button type="button" class="btn btn-primary" (click)="confirm()" >{{'POST.YES' | translate}}</button>
 
   </div>
 </ng-template>

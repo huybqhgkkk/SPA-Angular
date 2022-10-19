@@ -1,7 +1,7 @@
 <!--<h2 (click)="test()">test post</h2>-->
 
 
-<h1> Table</h1>
+<h1>{{'POST.TABLE' | translate}}</h1>
 <!--<p [routerLink]="['/post-detail',1]">Zeus rất đỗi vui mừng vì có một cậu con trai. Vào một đêm nọ, thần xuống trần bế chú bé Heracles lên cung điện Olympus, lén đặt vào lòng nữ thần Hera để bú trộm sữa. Khi Hera phát hiện Heracles và đẩy phắt cậu ra thì cậu đã bú gần no. Tương truyền lúc Hera đẩy cậu ra, sữa của nữ thần văng khắp bầu trời, tạo thành sông Ngân Hà. Nhờ được uống sữa của Hera mà sau này cậu bé mới trở nên bất tử. Vì vậy, thần Zeus đặt tên mới cho cậu bé là "Heracles", có nghĩa "Vinh quang của Hera".</p>-->
 
 
@@ -78,7 +78,7 @@
     <i aria-hidden="true" class="fa fa-search search"></i>
   </div>
   <div>
-    <button type="button" class="btn btn-primary" (click)="openModal(template)">Thêm mới</button>
+    <button type="button" class="btn btn-primary" (click)="openModal(template)">{{'POST.ADD' | translate}}</button>
   </div>
 </div>
 
@@ -99,9 +99,9 @@
       <td (click)="handleDetail(user.id)">{{ user.name }}</td>
       <td (click)="handleDetail(user.id)">{{ user.content }}</td>
       <td>
-        <button (click)="openModal(templateE) ; handleDetailEdit(user.id)">Edit</button>
+        <button (click)="openModal(templateE) ; handleDetailEdit(user.id)">{{'POST.EDIT' | translate}}</button>
         <!--        <button (click)="handleDelete(user.id)">Delete</button>-->
-        <button (click)="openModal(templateD); handleIdDelete(user.id)">Delete</button>
+        <button (click)="openModal(templateD); handleIdDelete(user.id)">{{'POST.DELETE' | translate}}</button>
       </td>
 
     </tbody>
@@ -111,19 +111,19 @@
 
 <ng-template #templateE>
   <div class="modal-body text-center">
-    <h2>Sửa đổi</h2>
+    <h2>{{'POST.UPDATE' | translate}}</h2>
     <form [formGroup]="EditForm" (ngSubmit)="handleEdit()" class="form__main">
       <label for="id">ID: </label>
       <input id="id" type="text" formControlName="id" [readOnly]="dis" class="disabled--custom">
 
-      <label for="name">Name: </label>
+      <label for="name">{{'POST.NAME' | translate}}: </label>
       <input id="name" type="text" formControlName="name">
 
-      <label for="content">Content: </label>
+      <label for="content">{{'POST.CONTENT' | translate}}: </label>
       <input id="content" type="text" formControlName="content">
 
-      <button type="submit" [disabled]="!EditForm.valid" class="btn btn-primary">Cập Nhật</button>
-      <button type="button" class="btn btn-danger" (click)="decline()">Hủy</button>
+      <button type="submit" [disabled]="!EditForm.valid" class="btn btn-primary">{{'POST.UPDATE' | translate}}</button>
+      <button type="button" class="btn btn-danger" (click)="decline()">{{'POST.CANCEL' | translate}}</button>
     </form>
     <!--        <button type="button" class="btn btn-default" (click)="confirm()" >Yes</button>-->
     <!--        <button type="button" class="btn btn-primary" (click)="decline()" >No</button>-->
@@ -132,16 +132,16 @@
 
 <ng-template #template>
   <div class="modal-body text-center">
-    <h2>thêm mới</h2>
+    <h2>{{'POST.ADD' | translate}}</h2>
     <form [formGroup]="AddForm" (ngSubmit)="confirm()" class="form__main">
 
-      <label for="name">Name: </label>
+      <label for="name">{{'POST.NAME' | translate}}: </label>
       <input id="name" type="text" formControlName="name">
       <!--          <div *ngIf="this.loginForm.controls.email.errors?.['pattern']"style="color: red">-->
       <!--            Nhập đúng định dạng emai: huykk@gmail.com-->
       <!--          </div>-->
 
-      <label for="content">Content: </label>
+      <label for="content">{{'POST.CONTENT' | translate}}: </label>
       <input id="content" type="text" formControlName="content">
       <!--          <div *ngIf="this.loginForm.controls.password.errors?.['minlength']"style="color: red">-->
       <!--            Mật khẩu ít nhất 8 kí tự-->
@@ -162,9 +162,9 @@
 
 <ng-template #templateD>
   <div class="modal-body text-center">
-    <h2>Bạn có muốn xóa bản ghi!!!</h2>
-    <button type="button" class="btn btn-danger" (click)="decline()" style="margin-right: 20px">No</button>
-    <button type="button" class="btn btn-primary" (click)="handleDelete()">Yes</button>
+    <h2>{{'POST.ARE_YOU_SURE' | translate}}!!!</h2>
+    <button type="button" class="btn btn-danger" (click)="decline()" style="margin-right: 20px">{{'POST.NO' | translate}}</button>
+    <button type="button" class="btn btn-primary" (click)="handleDelete()">{{'POST.YES' | translate}}</button>
 
   </div>
 </ng-template>

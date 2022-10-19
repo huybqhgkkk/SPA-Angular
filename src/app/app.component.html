@@ -1,67 +1,11 @@
 
-<!--  <input type="text" >-->
-<!--  <button (click)="updateTime()">Update Time</button>-->
-<!--  <input type="text" #label1 (change)="updateValue($event)">-->
-<!--  <input type="text" #label1 (change)="updateValue(label1.value)">-->
-<!--  <h2>thay doi {{label}}</h2>-->
 
-<!--  <h1> {{title}} </h1>-->
-<!--  <input type="text" [(ngModel)]="title">-->
-
-<!--  <div *ngIf="title"> &lt;!&ndash; Chỗ này là gọi directive ngIf để kiểm tra điều kiện if ngay ở html &ndash;&gt;-->
-<!--    Time: {{title}}-->
-<!--  </div>-->
-
-<!--  <div *ngIf="title; else noTitle">-->
-<!--    Time: {{title}}-->
-<!--  </div>-->
-<!--  <ng-template #noTitle> Click on the button to see time. </ng-template>-->
-
-<!--<div>Welcome <ng-container *ngIf="title">to <i>the</i> {{title}} world.</ng-container></div>-->
-
-<!--  <div [ngSwitch]="isMetric">-->
-<!--    <div *ngSwitchCase="true">Degree Celsius</div>-->
-<!--    <div *ngSwitchCase="false">Fahrenheit</div>-->
-<!--  </div>-->
-
-<!--  <div [ngSwitch]="isMetric">-->
-<!--    <div *ngSwitchCase="true">Degree Celsius</div>-->
-<!--    <div *ngSwitchDefault>Fahrenheit</div>-->
-<!--  </div>-->
-<!--<button type="button" class="btn btn-primary"-->
-<!--        tooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">-->
-<!--  Simple demo-->
-<!--</button>-->
 
 <div class="container">
-<!--<app-header></app-header>-->
-<!--  <router-outlet></router-outlet>-->
-<!--  <app-footer></app-footer>-->
+<app-header></app-header>
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
 
-  Change Language : <select #selLang (change)="translateLanguageTo(selLang.value)">
-  <option *ngFor="let language of translate.getLangs()" [value]="language">{{ language }}</option>
-</select>
-  <h1>{{'TITLE' | translate}}</h1>
-  <ul>
-    <li>
-      <b>{{'USER_INFO.NAME' | translate}}</b> : Heidi Miller
-    </li>
-    <li>
-      <b>{{'USER_INFO.WORKING_PROFILE' | translate}}</b> : Proactive discrete moderator
-    </li>
-    <li>
-      <b>{{'USER_INFO.ADDRESS_DETAILS' | translate}}</b> : 05516 Kristina Heights
-    </li>
-    <li>
-      <b>{{'USER_INFO.PHONE_NUMBER' | translate}}</b> : 253.647.7397 x4073
-    </li>
-    <li>
-      <b>{{'USER_INFO.EMAIL_ADDRESS' | translate}}</b> : Heidi_Miller33@yahoo.com
-    </li>
-    <li>
-      <b>{{'USER_INFO.RELEVANT_EXPERIENCE' | translate}}</b> : 4.5 Years
-    </li>
-  </ul>
 </div>
 
 <notifier-container

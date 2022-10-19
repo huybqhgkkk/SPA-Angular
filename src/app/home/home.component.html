@@ -1,51 +1,17 @@
-<!--<input value="" placeholder="aaa">-->
-<!--<input value="{{name}}" [title]="name">-->
-<!--<input [value]="name">-->
-
-<!--<div (click)="navigate('post')" style="background: #4285f4">chuyn sang post</div>-->
-
-
-<!--<h2> count la {{ count$ | async }}</h2>-->
-<!--<h2> auth la {{ auth | async }}</h2>-->
-
 <div *ngIf="isLogin; else noLogin">
-  <h1 appHighLight>Đăng nhập thành công</h1>
+  <h1 appHighLight>{{'HOME.IS_LOGIN' | translate}}</h1>
 </div>
 
 <ng-template #noLogin>
-  <h1>Bạn chưa đăng nhập</h1>
+  <h1>{{'LOGIN.LOGIN_SUCCESS' | translate}}</h1>
 </ng-template>
-
-<!--<h2>test child component</h2>-->
-<!--<h3>View child thông qua @Input</h3>-->
-<!--<app-product [childMessage]="'hello'" (voteSize)="voteCount($event)" (voteReset)="voteCount($event)"></app-product>-->
-
-<!--<h3>EventEmitter</h3>-->
-<!--<h1>Total vote from children: {{vote}}</h1>-->
-
-<!--<table>-->
-<!--  <tr>-->
-<!--    <th>trai cay</th>-->
-<!--    <th>gia</th>-->
-<!--    <th>Sale</th>-->
-<!--  </tr>-->
-<!--  <tr *ngFor="let a of dataList">-->
-<!--    <td>{{a.name | uppercase }}</td>-->
-<!--    <td [ngClass]="a.gia<0?'so-am':''">{{a.gia}}</td>-->
-<!--&lt;!&ndash;    pipe angular&ndash;&gt;-->
-<!--    <td>{{a. sale | onsale | uppercase}}</td>-->
-<!--    &lt;!&ndash;<td [ngClass]="{'so-am': a.gia<0}" [ngStyle]="{'font-size': '30px'}" [style]="{'color: yellow':a.gia>0 }">{{a.gia | currency}}</td>&ndash;&gt;-->
-<!--  </tr>-->
-<!--</table>-->
-
-
 <!--chon tinh, huyen, xa-->
 
   <div class="VN__container">
-    <h2>chọn tỉnh huyện...</h2>
+    <h2>{{'HOME.CHOOSE' | translate}}</h2>
     <div class="VN__main">
       <div>
-        <span>tinh</span>
+        <span>{{'HOME.PROVINCE' | translate}}</span>
         <span>
 <ng-select [(ngModel)]="dataInput.tinh" (ngModelChange)="handleProvince($event)" name="tinh" class="VN__province">
   <ng-option *ngFor="let car of vnData" [value]="car?.code">{{car?.name}}
@@ -55,7 +21,7 @@
       </div>
 
 <div>
-  <span>huyen</span>
+  <span>{{'HOME.DISTRICT' | translate}}</span>
   <span>
   <ng-select [(ngModel)]="dataInput.huyen" (ngModelChange)="handleDistrict($event)" name="huyen" class="VN__province">
     <ng-option *ngFor="let car of district" [value]="car?.code">{{car?.name}}
@@ -65,21 +31,17 @@
 </div>
 
 <div>
-  <span>xa</span>
+  <span>{{'HOME.WARD' | translate}}</span>
   <span>
     <ng-select [(ngModel)]="dataInput.xa" name="tinh" class="VN__province">
       <ng-option *ngFor="let car of ward" value="{{car?.code}}">{{car?.name}}
       </ng-option>
     </ng-select>
-
     </span>
 </div>
 
     </div>
     <div class="button--submit">
-      <!--      <button type="submit"  class="btn btn-primary">Submit</button>-->
-      <!--      <span [ngModel]="dataInput">thong tin ban da nhap la: {{dataInput.xa}}, {{dataInput.huyen}}-->
-      <!--        , {{dataInput.tinh}}</span>-->
     </div>
   </div>
 

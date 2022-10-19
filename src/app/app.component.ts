@@ -1,6 +1,6 @@
-import {Component, EventEmitter, Input, Output, Directive} from '@angular/core';
-import {Router} from '@angular/router';
-import {TranslateService} from "@ngx-translate/core";
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { TranslateService } from "@ngx-translate/core";
 
 
 @Component({
@@ -26,7 +26,6 @@ export class AppComponent {
   }
 
   navigate(url: string) {
-    // this.routerService.navigate([url]);
     this.routerService.navigateByUrl(url);
   }
 
@@ -34,7 +33,7 @@ export class AppComponent {
     public routerService: Router,
     public translate: TranslateService
   ) {
-    translate.addLangs(['en', 'vn', 'fr']);
+    translate.addLangs(['en', 'vn']);
     translate.setDefaultLang('en');
   }
 

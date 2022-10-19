@@ -1,11 +1,41 @@
 {
-  "TITLE": "Welcome, your profile details are",
-  "USER_INFO":{
+  "HOME":{
+    "NAME":"Home",
+    "IS_LOGIN":"You are logged in",
+    "PROVINCE":"Province",
+    "DISTRICT":"District",
+    "WARD":"Ward",
+    "CHOOSE":"Choose"
+  },
+  "POST":{
+    "POST":"Post",
+    "TABLE":"Table",
+    "ADD":"Add",
+    "EDIT":"Edit",
+    "DELETE":"Delete",
     "NAME":"Name",
-    "WORKING_PROFILE":"Working Profile",
-    "ADDRESS_DETAILS":"Address Details",
-    "PHONE_NUMBER":"Phone Number",
-    "EMAIL_ADDRESS":"Email Address",
-    "RELEVANT_EXPERIENCE":"Relevant Experience"
+    "CONTENT":"Content",
+    "ACTION":"Action",
+    "UPDATE":"Update",
+    "CANCEL":"Cancel",
+    "YES":"Yes",
+    "NO":"No",
+    "ARE_YOU_SURE":"Do you want to delete the record"
+  },
+  "PROFILE":{
+    "NAME":"Profile",
+    "IS_MUST":"You need to be logged in to view the content here"
+
+  },
+  "LOGIN":{
+    "LOGIN":"Login",
+    "SUBMIT":"Submit",
+    "EMAIL":"Email",
+    "PASSWORD":"Password",
+    "PLEASE_LOGIN":"Please Login here",
+    "LOGIN_SUCCESS":"You are not logged in",
+    "LOGOUT":"Do you want to sign out",
+    "VALID_EMAIL": "Enter the correct email format",
+    "VALID_PASS": "Password must be at least 8 characters"
   }
 }

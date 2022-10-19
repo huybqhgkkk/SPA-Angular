@@ -1,4 +1,4 @@
-<h1>please login</h1>
+<h1>{{'LOGIN.PLEASE_LOGIN' | translate}}</h1>
 
 <div class="form__container">
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form__main">
@@ -6,13 +6,13 @@
     <label for="email">Email: </label>
     <input id="email" type="text" formControlName="email">
     <div *ngIf="this.loginForm.controls.email.errors?.['pattern']"style="color: red">
-      Nhập đúng định dạng emai: huykk@gmail.com
+      {{'LOGIN.VALID_EMAIL' | translate}}: huykk@gmail.com
     </div>
 
-    <label for="password">Password: </label>
+    <label for="password">{{'LOGIN.PASSWORD' | translate}}: </label>
     <input id="password" type="password" formControlName="password">
     <div *ngIf="this.loginForm.controls.password.errors?.['minlength']"style="color: red">
-     Mật khẩu ít nhất 8 kí tự
+      {{'LOGIN.VALID_PASS' | translate}}
     </div>
 
 <!--    <div *ngIf="!loginForm.valid" style="color: red">-->
@@ -20,7 +20,7 @@
 <!--    </div>-->
 
 <!--    <button type="submit" [disabled]="!loginForm.valid">Submit</button>-->
-    <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">Submit</button>
+    <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">{{'LOGIN.SUBMIT' | translate}}</button>
   </form>
 </div>
 
