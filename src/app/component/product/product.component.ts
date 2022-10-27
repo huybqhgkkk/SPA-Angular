@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { HomeService } from '../Services/Home/home.service';
+import { HomeService } from '../../Services/home/home.service';
 
 @Component({
   selector: 'app-product',

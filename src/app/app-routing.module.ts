@@ -1,11 +1,11 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {HomeComponent} from "./home/home.component";
-import {NotFoundComponent} from "./not-found/not-found.component";
-import {PostComponent} from "./post/post.component";
-import {ProfileComponent} from "./profile/profile.component";
-import {LoginComponent} from "./login/login.component";
-import {PostDetailComponent} from "./post-detail/post-detail.component";
+import {HomeComponent} from "./component/home/home.component";
+import {NotFoundComponent} from "./component/not-found/not-found.component";
+import {PostComponent} from "./component/post/post.component";
+import {ProfileComponent} from "./component/profile/profile.component";
+import {LoginComponent} from "./component/login/login.component";
+import {PostDetailComponent} from "./component/post-detail/post-detail.component";
 
 
 const routes: Routes = [

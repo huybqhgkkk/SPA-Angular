@@ -1,6 +1,6 @@
 import {Component, OnInit, TemplateRef} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {HttpServerService} from "../Services/http-server.service";
+import {HttpServerService} from "../../Services/http-server.service";
 import {Observable} from "rxjs";
 import {NzI18nService} from "ng-zorro-antd/i18n";
 import {getISOWeek} from 'date-fns';
@@ -8,7 +8,7 @@ import {NzTableSortersComponent} from "ng-zorro-antd/table";
 
 import {BsModalService, BsModalRef} from 'ngx-bootstrap/modal';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {IUser} from "../entity/User";
+import {IUser} from "../../entity/User";
 import {NotifierService} from 'angular-notifier';
 
 

@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
-import {HttpServerService} from "../Services/http-server.service";
+import {HttpServerService} from "../../Services/http-server.service";
 import {Store} from "@ngrx/store";
-import {setAuth} from "../test.actions";
+import {setAuth} from "../../test.actions";
 import {Router} from "@angular/router";
 
 @Component({

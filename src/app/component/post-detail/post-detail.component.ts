@@ -1,7 +1,7 @@
 import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Location} from '@angular/common'
-import {HttpServerService} from "../Services/http-server.service";
+import {HttpServerService} from "../../Services/http-server.service";
 import {async} from "rxjs";
 
 @Component({

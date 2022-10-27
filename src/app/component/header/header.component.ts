@@ -1,7 +1,7 @@
 import {Component, OnChanges, OnInit, SimpleChanges, TemplateRef} from '@angular/core';
 import {Router} from "@angular/router";
 import {Store} from "@ngrx/store";
-import {HttpServerService} from "../Services/http-server.service";
+import {HttpServerService} from "../../Services/http-server.service";
 import {BsModalService, BsModalRef} from 'ngx-bootstrap/modal';
 import {TranslateService} from "@ngx-translate/core";
 

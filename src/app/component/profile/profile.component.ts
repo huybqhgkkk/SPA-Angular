@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
-import {addProduct, decrement, increment, reset, setAuth} from '../test.actions';
+import {addProduct, decrement, increment, reset, setAuth} from '../../test.actions';
 import { TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import {HttpServerService} from "../Services/http-server.service";
+import {HttpServerService} from "../../Services/http-server.service";
 import {Router} from "@angular/router";
 
 
@@ -30,24 +30,8 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-    // if(!this.checkLogin){
-    //   var text = "Bạn cần đăng nhập để xem đc Profile!";
-    //   if (confirm(text) == true) {
-    //     this.router.navigateByUrl("/login")
-    //   } else {
-    //     this.router.navigateByUrl("/home")
-    //   }
-    // }else {
-    //   this.http.getInfor().subscribe((data)=> {
-    //     console.log(333, data)
-    //     this.datas = data
-    //   })
-    // }
-
     if (this.checkLogin) {
       this.http.getInfor().subscribe((data)=> {
-        console.log(333, data)
         this.datas = data
       })
     }

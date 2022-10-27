@@ -11,7 +11,7 @@ import {
 import {Router} from "@angular/router";
 import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
-import {HttpServerService} from "../Services/http-server.service";
+import {HttpServerService} from "../../Services/http-server.service";
 import {defaultThrottleConfig} from "rxjs/internal-compatibility";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
@@ -88,7 +88,6 @@ export class HomeComponent implements OnInit {
 
   //xu li chon tinh
   handleProvince(e: any): void {
-    // console.log(333,e)
     this.dataInput.xa = "";
     this.dataInput.huyen = "";
     this.ward = null;
