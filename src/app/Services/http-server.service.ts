@@ -19,6 +19,15 @@ export class HttpServerService {
       {
         "Content-Type": "application/json",
         // Authoriration : "token"
+        allowedHeaders: [
+          'Content-Type',
+          'Authorization',
+          'Origin',
+          'x-access-token',
+          'XSRF-TOKEN'
+        ],
+        'Access-Control-Allow-Origin': 'http://localhost:4200',
+        "Cache-Control": "no-cache",
       }
     )
   }

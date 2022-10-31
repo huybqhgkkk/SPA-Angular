@@ -20,12 +20,16 @@
     "CANCEL":"Cancel",
     "YES":"Yes",
     "NO":"No",
-    "ARE_YOU_SURE":"Do you want to delete the record"
+    "ARE_YOU_SURE":"Do you want to delete the record",
+    "GO_BACK":"Go back",
+    "HELLO": "Hello",
+    "INFO":"Information is"
   },
   "PROFILE":{
     "NAME":"Profile",
-    "IS_MUST":"You need to be logged in to view the content here"
-
+    "IS_MUST":"You need to be logged in to view the content here",
+    "YOUR_PROFILE": "Your profile",
+    "YOUR_NAME":"your name is"
   },
   "LOGIN":{
     "LOGIN":"Login",

@@ -1,69 +1,5 @@
-<!--<h2 (click)="test()">test post</h2>-->
-
-
 <h1>{{'POST.TABLE' | translate}}</h1>
-<!--<p [routerLink]="['/post-detail',1]">Zeus rất đỗi vui mừng vì có một cậu con trai. Vào một đêm nọ, thần xuống trần bế chú bé Heracles lên cung điện Olympus, lén đặt vào lòng nữ thần Hera để bú trộm sữa. Khi Hera phát hiện Heracles và đẩy phắt cậu ra thì cậu đã bú gần no. Tương truyền lúc Hera đẩy cậu ra, sữa của nữ thần văng khắp bầu trời, tạo thành sông Ngân Hà. Nhờ được uống sữa của Hera mà sau này cậu bé mới trở nên bất tử. Vì vậy, thần Zeus đặt tên mới cho cậu bé là "Heracles", có nghĩa "Vinh quang của Hera".</p>-->
 
-
-<!--<h1>fetch data</h1>-->
-
-<!--<div id="1" class="item new col-md-4" *ngFor="let item of datas">-->
-
-<!--      <h4>{{item.name}}</h4>-->
-<!--      <h6>{{item.content}}</h6>-->
-<!--   -->
-<!--</div>-->
-
-
-<!--(click)="handleDetail(dl)"-->
-<!--<ngx-datatable-->
-<!--  class=" container"-->
-<!--  [rows]="datas"-->
-<!--  [loadingIndicator]="loadingIndicator"-->
-<!--  [columns]="columns"-->
-<!--  [headerHeight]="50"-->
-<!--  [footerHeight]="50"-->
-<!--  rowHeight="auto"-->
-<!--  [reorderable]="reorderable"-->
-<!--  [limit]="10"-->
-
-<!--  (click)="handleDetail($event)"-->
-<!--&gt;-->
-<!--</ngx-datatable>-->
-
-<!--<button nz-button nzType="primary">Primary</button>-->
-
-<!--<div *ngFor="let data of datas">-->
-<!--  <p (click)="handleDetail(data.id)">{{data.name}}</p>-->
-
-<!--</div>-->
-
-<!--<div class="col-md-12 mb-3" style="margin-top: 10px;">-->
-<!--  <ngx-datatable class="material container striped table__post" [rows]="datas" [columnMode]="'flex'" [headerHeight]="50" [footerHeight]="50" rowHeight="auto">-->
-<!--&lt;!&ndash;    <ngx-datatable-column name="#" [flexGrow]="0.5">&ndash;&gt;-->
-<!--&lt;!&ndash;      <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>&ndash;&gt;-->
-<!--&lt;!&ndash;        {{(rowIndex + 1)}}&ndash;&gt;-->
-<!--&lt;!&ndash;      </ng-template>&ndash;&gt;-->
-<!--&lt;!&ndash;    </ngx-datatable-column>&ndash;&gt;-->
-<!--    <ngx-datatable-column name="#" [flexGrow]="1">-->
-<!--      <ng-template let-row="row" ngx-datatable-cell-template>-->
-<!--        {{ row?.id | titlecase }}-->
-<!--      </ng-template>-->
-<!--    </ngx-datatable-column>-->
-
-<!--    <ngx-datatable-column name="Name" [flexGrow]="2">-->
-<!--      <ng-template let-row="row" ngx-datatable-cell-template>-->
-<!--        {{ row?.name | titlecase }}-->
-<!--      </ng-template>-->
-<!--    </ngx-datatable-column>-->
-<!--    <ngx-datatable-column name="Content" [flexGrow]="2">-->
-<!--      <ng-template let-row="row" ngx-datatable-cell-template>-->
-<!--        {{row?.content}}-->
-<!--      </ng-template>-->
-<!--    </ngx-datatable-column>-->
-<!--  </ngx-datatable>-->
-<!--</div>-->
-<!--<h1>{{searchValue}}</h1>-->
 <div class="post__top">
   <div class="form-input">
     <input
@@ -100,7 +36,6 @@
       <td (click)="handleDetail(user.id)">{{ user.content }}</td>
       <td>
         <button (click)="openModal(templateE) ; handleDetailEdit(user.id)">{{'POST.EDIT' | translate}}</button>
-        <!--        <button (click)="handleDelete(user.id)">Delete</button>-->
         <button (click)="openModal(templateD); handleIdDelete(user.id)">{{'POST.DELETE' | translate}}</button>
       </td>
 
@@ -125,8 +60,6 @@
       <button type="submit" [disabled]="!EditForm.valid" class="btn btn-primary">{{'POST.UPDATE' | translate}}</button>
       <button type="button" class="btn btn-danger" (click)="decline()">{{'POST.CANCEL' | translate}}</button>
     </form>
-    <!--        <button type="button" class="btn btn-default" (click)="confirm()" >Yes</button>-->
-    <!--        <button type="button" class="btn btn-primary" (click)="decline()" >No</button>-->
   </div>
 </ng-template>
 
@@ -154,9 +87,6 @@
       <button type="submit" [disabled]="!AddForm.valid" class="btn btn-primary">Submit</button>
     </form>
 
-
-    <!--        <button type="button" class="btn btn-default" (click)="confirm()" >Yes</button>-->
-    <!--        <button type="button" class="btn btn-primary" (click)="decline()" >No</button>-->
   </div>
 </ng-template>
 

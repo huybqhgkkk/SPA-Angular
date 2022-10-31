@@ -21,12 +21,15 @@
     "CANCEL":"Hủy",
     "YES":"Đồng ý",
     "NO":"Không",
-    "ARE_YOU_SURE":"Bạn có muốn xóa bản ghi"
+    "ARE_YOU_SURE":"Bạn có muốn xóa bản ghi",
+    "GO_BACK":"Trở lại",
+    "HELLO": "Xin chào",
+    "INFO":"Thông tin là"
   },
   "PROFILE":{
     "NAME":"Hồ sơ",
-    "IS_MUST":"Bạn cần phải đăng nhập để xem nội dung này"
-
+    "IS_MUST":"Bạn cần phải đăng nhập để xem nội dung này",
+    "YOUR_NAME":"Tên của bạn là"
   },
   "LOGIN":{
     "LOGIN":"Đăng nhập",

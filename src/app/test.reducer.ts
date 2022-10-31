@@ -18,11 +18,3 @@ export const testLogin = createReducer(
   }),
 );
 
-export  const addPD = createReducer(
-  auth,
-  on(addProduct,(a,b)=>{
-    console.log(888,a,b)
-    return a
-  } )
-)
-
