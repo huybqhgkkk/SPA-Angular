@@ -74,6 +74,18 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  ngAfterContentChecked(){
+    console.log(111,this.vote)
+  }
+
+  // ngAfterViewChecked(){
+  //   console.log(222,this.vote)
+  // }
+
+  // ngDoCheck(){
+  //   console.log(333,this.vote)
+  // }
+
   navigate(url: string) {
     // this.routerService.navigate([url]);
     this.routerService.navigateByUrl(url);

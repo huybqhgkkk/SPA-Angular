@@ -28,6 +28,11 @@ export class ProductComponent implements OnInit {
     // Hàm vote sẽ tăng counter lên 1, đồng thời thông qua EventEmitter bắn value counter này ra component cha
   }
 
+  votedMinus() {
+    this.counter --;
+    this.voteSize.emit(this.counter);
+  }
+
   reset(){
     this.counter = 0;
     this.voteReset.emit(this.counter);
