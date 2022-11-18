@@ -1,16 +1,16 @@
 import { UserActions, EUserActions } from './user.actions';
-import { IUserState, IUserLoginState } from './user.states';
-const initLoginState: IUserLoginState = {
+import { UserState, UserLoginState } from './user.states';
+const initLoginState: UserLoginState = {
   loading: false,
   success: false,
   fail: false,
   userName: ''
 };
-const initUserState: IUserState = {
+const initUserState: UserState = {
   login: initLoginState
 };
 
-export function userReducer(state = initUserState, action: UserActions): IUserState {
+export function userReducer(state = initUserState, action: UserActions): UserState {
   switch (action.type) {
     case EUserActions.LOGIN:
       return {

@@ -1,9 +1,9 @@
-export interface IUserLoginState {
+export interface UserLoginState {
   loading: boolean;
   success: boolean;
   fail: boolean;
   userName: string;
 }
-export interface IUserState {
-  login: IUserLoginState;
+export interface UserState {
+  login: UserLoginState;
 }

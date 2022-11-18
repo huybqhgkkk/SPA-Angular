@@ -8,7 +8,7 @@ import {NzTableSortersComponent} from "ng-zorro-antd/table";
 
 import {BsModalService, BsModalRef} from 'ngx-bootstrap/modal';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {IUser} from "../../entity/User";
+import {User} from "../../entity/User";
 import {NotifierService} from 'angular-notifier';
 
 
@@ -20,7 +20,7 @@ import {NotifierService} from 'angular-notifier';
 export class PostComponent implements OnInit {
   id: number = 0;
   datas: any;
-  dataDisplay: IUser[] = [];
+  dataDisplay: User[] = [];
   searchText: string = "";
   loadingIndicator = true;
   reorderable = true;

@@ -2,7 +2,7 @@
 // import { ActionReducerMap } from '@ngrx/store';
 //
 // export interface IAppState {
-//   user: fromUser.IUserState;
+//   user: fromUser.UserState;
 // }
 //
 // export const appReducer: ActionReducerMap<IAppState> = {
