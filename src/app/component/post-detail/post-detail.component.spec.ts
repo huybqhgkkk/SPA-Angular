@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PostDetailComponent } from './post-detail.component';
+import {StoreModule} from "@ngrx/store";
+import {RouterModule} from "@angular/router";
+import {HttpClientModule} from "@angular/common/http";
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('PostDetailComponent', () => {
   let component: PostDetailComponent;
@@ -8,6 +12,12 @@ describe('PostDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        StoreModule.forRoot({}),
+        RouterModule.forRoot([]),
+        HttpClientModule,
+        TranslateModule.forRoot(),
+      ],
       declarations: [ PostDetailComponent ]
     })
     .compileComponents();

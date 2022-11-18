@@ -1,6 +1,5 @@
-import {NgModule} from '@angular/core';
+import {NgModule, RendererFactory2} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HomeComponent} from './component/home/home.component';
@@ -24,7 +23,6 @@ import {StoreModule} from '@ngrx/store';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import {ModalModule} from 'ngx-bootstrap/modal';
-
 import {counterReducer, testLogin} from './test.reducer';
 import {ProductComponent} from './component/product/product.component';
 import {OnsalePipe} from './shared/pipe/onsale.pipe';
@@ -35,6 +33,7 @@ import {NgSelectModule} from '@ng-select/ng-select';
 
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {BrowserDynamicTestingModule} from "@angular/platform-browser-dynamic/testing";
 
 
 export function httpTranslateLoaderFactory(http: HttpClient) {
@@ -75,7 +74,6 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     NzSelectModule,
     NotifierModule,
     NgSelectModule,
-    // ModalModule.forRoot(),
     StoreModule.forRoot({count: counterReducer, auth: testLogin}),
     TooltipModule.forRoot(),
     Ng2SearchPipeModule,
@@ -86,7 +84,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
         useFactory: httpTranslateLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
   ],
   providers: [
     {provide: NZ_ICONS, useValue: icons}

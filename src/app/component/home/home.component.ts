@@ -23,7 +23,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 export class HomeComponent implements OnInit {
   name = "huykkk";
   age = 11;
-  myColor = "red"
+  myColor = "blue"
   // count$: Observable<number>;
   // auth: any;
   vote: number = 0;

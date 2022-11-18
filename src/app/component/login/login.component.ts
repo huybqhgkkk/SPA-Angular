@@ -36,9 +36,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    // console.log(444,this.loginForm.value);
     this.httpServerService.loginAPi().subscribe((data) => {
-      // console.log(555,data)
       if (data) {
         localStorage.setItem("token", data.token)
         // this.store.dispatch(setAuth())

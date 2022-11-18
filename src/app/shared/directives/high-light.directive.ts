@@ -4,15 +4,17 @@ import {Directive, ElementRef, Input, OnInit} from '@angular/core';
   selector: '[appHighLight]'
 })
 export class HighLightDirective implements OnInit{
-  @Input() appHighlight = "blue"
+  defaultColor =  'rgb(211, 211, 211)'; // lightgray
+  @Input('appHighlight') bgColor = '';
 
   constructor(
     private el: ElementRef
   ) {
-
+    el.nativeElement.style.customProperty = true;
   }
   ngOnInit() {
-    this.el.nativeElement.style.color = this.appHighlight;
+    console.log(111, this.bgColor)
+    this.el.nativeElement.style.color = this.bgColor || this.defaultColor;
   }
 
 }

@@ -1,10 +1,4 @@
-<!--<div *ngIf="isLogin; else noLogin">-->
-<!--  <h1 appHighLight>{{'HOME.IS_LOGIN' | translate}}</h1>-->
-<!--</div>-->
 
-<!--<ng-template #noLogin>-->
-<!--  <h1>{{'LOGIN.LOGIN_SUCCESS' | translate}}</h1>-->
-<!--</ng-template>-->
 <!--chon tinh, huyen, xa-->
 
 <!--  <div class="VN__container">-->
@@ -45,6 +39,13 @@
 <!--    </div>-->
 <!--  </div>-->
 <div class="home__container">
+  <div *ngIf="isLogin; else noLogin">
+    <h1 appHighLight>{{'HOME.IS_LOGIN' | translate}}</h1>
+  </div>
+
+  <ng-template #noLogin>
+    <h1 appHighLight>{{'LOGIN.LOGIN_SUCCESS' | translate}}</h1>
+  </ng-template>
   <div class="header">
     <div class="title">
       hello huyk
@@ -52,6 +53,7 @@
     <div class="content">
       the life is good
     </div>
+    <span>{{name}}</span>
     <button class="btn-info btn-animation">Discovery</button>
   </div>
 </div>

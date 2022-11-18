@@ -7,8 +7,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "test:coverage": "ng test --code-coverage",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix --ext .js,.jsx ."
+    "lint:fix": "eslint --fix --ext .js,.jsx .",
+    "test1": "ng test --include src/app/component/login/login.component.spec.ts",
+    "test2": "ng test --include src/app/Services/http-server.service.spec.ts"
   },
   "private": true,
   "dependencies": {
