@@ -83,23 +83,16 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.id = this.activatedRoute.snapshot.params['id'];
     // get data
+    this.getDataTable();
+  }
+
+  //get data
+  getDataTable() {
     this.httpServerService.getPost().subscribe((data) => {
-      // this.datas = data;
       this.dataDisplay = data;
     })
   }
-
-  // searchValue(e:any): void{
-  //   console.log(555,e)
-  //   if (e.length > 0){
-  //     this.dataDisplay = this.datas.filter((item: any) => {
-  //       item.name.indexOf(e) !== -1 && item.content.indexOf(e) !== -1
-  //     });
-  //   }else  this.dataDisplay = this.datas;
-  //
-  // }
 
   //ham sap xep theo name
   sortFn = (a: any, b: any) => a.name.localeCompare(b.name);
@@ -125,10 +118,7 @@ export class PostComponent implements OnInit {
 
     this.httpServerService.editPost(this.EditForm.value.id, pay).subscribe(() => {
       this.EditForm.reset();
-      this.httpServerService.getPost().subscribe((data) => {
-        // this.datas = data;
-        this.dataDisplay = data;
-      })
+      this.getDataTable();
     })
     this.notifier.notify('success', 'Sửa thành công');
 
@@ -139,9 +129,7 @@ export class PostComponent implements OnInit {
 // ham delete
   handleDelete() {
     this.httpServerService.deletePost(this.idDelete).subscribe(() => {
-      this.httpServerService.getPost().subscribe((data) => {
-        this.dataDisplay = data;
-      })
+      this.getDataTable();
     })
     this.modalRef?.hide()
     this.notifier.notify('success', 'Xóa thành công');
@@ -167,10 +155,7 @@ export class PostComponent implements OnInit {
     this.httpServerService.PostApi(pay).subscribe((data) => {
       this.AddForm.reset();
       this.AddForm.reset();
-      this.httpServerService.getPost().subscribe((data) => {
-        // this.datas = data;
-        this.dataDisplay = data;
-      })
+      this.getDataTable();
     })
     this.notifier.notify('success', 'Thêm thành công');
     this.modalRef?.hide();

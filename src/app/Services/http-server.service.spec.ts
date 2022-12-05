@@ -38,7 +38,6 @@ describe('HttpServerService', () => {
       providers: [HttpServerService],
     });
     service = TestBed.inject(HttpServerService);
-
     injector = getTestBed();
     httpMock = injector.get(HttpTestingController);
   });
